@@ -162,7 +162,12 @@ filmeLançados(filmeObjeto1, filmeObjeto2)
 // 3.
 function estoqueSacolao (algumaFruta) {
 const novaDisponibilidade = !algumaFruta.disponibilidade
-console.log(novaDisponibilidade)
+const novaFruta = {
+    ...algumaFruta,
+    disponibilidade: novaDisponibilidade
+}
+console.log(novaFruta)
+console.log(`A nova disponibilidade da fruta ${algumaFruta.nome} é ${novaDisponibilidade}`)
 }
 
 estoqueSacolao(objetoFruta)
