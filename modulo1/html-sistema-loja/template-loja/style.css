@@ -48,4 +48,10 @@ body {
     padding: 10px;
     margin-top: 0px;
     text-align: center;
+    border-top: #001f3f; 
+}
+
+#container {
+    width: 700px;
+    margin: 0 auto;
 }

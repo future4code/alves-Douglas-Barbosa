@@ -32,3 +32,8 @@ nav {
     color: white;
     text-align: center;
 }
+
+#container {
+    width: 700px;
+    margin: 0 auto;
+}

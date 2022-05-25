@@ -55,3 +55,8 @@ form {
     width: 500px;
     color: beige;
 }
+
+#container {
+    width: 700px;
+    margin: 0 auto;
+}
