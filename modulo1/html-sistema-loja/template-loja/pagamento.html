@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/pagamento.css">
     <title>Soccer Nation</title>
 </head>
 
@@ -24,10 +24,27 @@
             <a href="/pagamento.html">Pagamento</a>
         </nav>
     </div>
-    <div id="divimg">
-        <main id="main">
-            <img id="imagem" src="./IMG/Patrocinio-nas-camisas-de-futebol-1.jpg" />
-        </main>
+    <div>
+        <form class="checkout">
+            <div class="checkout-header">
+              <h1 class="checkout-title">
+                Checkout
+                <span class="checkout-price">$10</span>
+              </h1>
+            </div>
+            <p>
+              <input type="text" class="checkout-input checkout-name" placeholder="Seu Nome">
+              <input type="text" class="checkout-input checkout-exp" placeholder="Mês">
+              <input type="text" class="checkout-input checkout-exp" placeholder="Ano">
+            </p>
+            <p>
+              <input type="text" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
+              <input type="text" class="checkout-input checkout-cvc" placeholder="CVC">
+            </p>
+            <p>
+              <input type="submit" value="Purchase" class="checkout-btn">
+            </p>
+          </form>
     </div>
 
 
