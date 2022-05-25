@@ -25,3 +25,7 @@ nav {
     color: white;
     text-align: center;
 }
+
+#funcionarios {
+    justify-content: space-around;
+}
