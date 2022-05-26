@@ -9,11 +9,17 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: 'Open Sans';
+    src: url(./static/OpenSans/#fadf63) format('truetype');
+  }
+
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
     color: white;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 input {
@@ -56,7 +62,7 @@ div img {
     display: block;
     margin:auto;
     position:relative;
-    bottom: -45%;
+    bottom: 40px;
 }
 
 .botao-amarelo:hover {
@@ -89,6 +95,7 @@ div img {
     background-color: #2274a5;
     color: white;
     padding-top: 80px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #container-de-descricao>p {
@@ -106,7 +113,9 @@ div img {
 #container-para-comprar>p {
     color: #c44f00;
     padding: 100px 0;
-    font-size: 60px;
+    font-size: 50px;
+    font-family: 'Open Sans', sans-serif;
+    display:block;
 }
 
 
