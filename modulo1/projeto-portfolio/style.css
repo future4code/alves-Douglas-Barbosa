@@ -1,103 +1,273 @@
 body {
-    background-color: #dff9fb;
+    background-color: #f1f2f6;
+    font-family: 'Open Sans';
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: orange
 }
 
 header {
-    background-color: #dff9fb;
+    background-color: #f1f2f6;
     height: 100px;
     width: 100px;
     display: inline-block;
     position: absolute;
-    left: 20%; 
+    left: 20%;
     top: 5%;
+    right: 0%;
+    bottom: 0%;
 }
 
-#container-menu{
-    display: flex;
-    position:absolute;
-    right: 20.0164%; 
-    top: 9.61993%;
-    
+.semi-bold {
+    font-weight: 700;
+    margin-bottom: 0%;
+    font-size: 65px;
 }
 
-#github {
+.texto-margin {
+    margin-top: 0%;
+    font-weight: 500;
+    font-size: 55px;
+}
+
+.container-menu {
+    display: inline-block;
     position: absolute;
-    display:inline-block;
-    right: 31.819%;
-    top: 4.40698%;
+    right: 20.0164%;
+    left: 56.4761% !important;
+    top: 10.3529% !important;
+    right: 0%;
+
 }
 
-#linkedin {
-    position: absolute;
-    display:inline-block;
-    right: 26.5299%;
-    top: 4.40698%;
-}
-
-#facebook {
+.github {
     position: absolute;
     display: inline-block;
-    right: 21.4664%; 
+    right: 37.652% !important;
     top: 4.40698%;
+    left: 59.2212% !important;
+    bottom: 90% !important;
 }
 
-#menu {
+.linkedin {
+    position: absolute;
+    display: inline-block;
+    right: 31.9426% !important;
+    top: 4.40698%;
+    left: 64.0541% !important;
+    bottom: 90% !important;
+}
+
+.facebook {
+    position: absolute;
+    display: inline-block;
+    right: 28.613% !important;
+    top: 4.40698%;
+    bottom: 91% !important;
+}
+
+.menu {
     padding-right: 14px;
 }
 
-ul{
-    list-style:none;
-    padding:0px;
+ul {
+    list-style: none;
+    padding: 0px;
 }
-li{
+
+li {
     width: 100px;
-    height:35px;
-    border-right:#FFF solid 1px;
-    font-size:23px;
-    display:inline-table;
-    vertical-align:middle;
-    text-align:center;
-    background-color: white;
+    height: 35px;
+    border-right: #f1f2f6 solid 1px;
+    font-size: 23px;
+    display: inline-table;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #f1f2f6;
 }
 
-li:hover{
-    background-color:#F00;
+li:hover {
+    color: orange
 }
 
-#texto {
+.texto {
     font-size: 45px;
     text-align: center;
     position: absolute;
-    display:inline-block;
-    right: 31.446%;
+    display: inline-block;
     top: 23.4358%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
-#novo-background{
-    width:100%;
+.novo-background {
+    text-align: center;
+    width: 100%;
     height: 90%;
-    background-color: #0be881;
-    display:inline-block;
+    background-color: #ff9f43;
+    display: inline-block;
     position: absolute;
     right: -0.00932836%;
-    top: 59.8795%;
+    top: 63.9118%
 }
 
-#texto2 {
+.texto2 {
     font-size: 35px;
     text-align: center;
     position: absolute;
-    display:inline-block;
-    top: 62.1906%;
-    right: 54.27%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    left: -2%;
+    top: 74.1733% !important;
+    right: 39.0866% !important;
+    bottom: 0%;
 }
 
-#terceiro-background {
-    width:100%;
-    height: 50%;
-    background-color: #dff9fb;
-    display:inline-block;
+.texto3 {
+    font-size: 35px;
+    text-align: center;
+    position: absolute;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    right: 24.24% !important;
+    left: 62.8754% !important;
+    top: 74.0224% !important;
+    bottom: 0%;
+}
+
+.terceiro-background {
+    text-align: center;
+    width: 100%;
+    height: 80%;
+    background-color: #f1f2f6;
+    display: inline-block;
     position: absolute;
     right: -0.00932836%;
-    top: 149.521%;
+    top: 153.5%;
+}
+
+.botão-curriculo {
+    background-color: #ff9f43;
+    ;
+    cursor: pointer;
+    border: none;
+    color: rgb(17, 10, 3);
+}
+
+.botão-curriculo:hover {
+    color: rgb(218, 78, 13);
+}
+
+.linha-horizontal {
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    width: 350px;
+    border: 1px solid #000;
+    top: 84.6902% !important;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.projeto-content1 {
+    width: 337px;
+    border: 2px solid #E6E6E6;
+    border-bottom: none;
+    margin-left: 2px;
+    height: 7px;
+    width: 323px;
+    border-left: 4px solid #E6E6E6;
+    border-right: 10px solid #E6E6E6;
+    border-bottom: 10px solid #E6E6E6;
+    height: 340px;
+    padding: 5px 0;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: -0.0252233% !important;
+    right: 1.27605% !important;
+    top: 166.903% !important;
+}
+
+.projeto-descricao1 {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: -0.0252233% !important;
+    right: 1.27605% !important;
+    top: 209.416% !important;
+    text-align: center;
+}
+
+.projeto-content2 {
+    width: 337px;
+    border: 2px solid #E6E6E6;
+    border-bottom: none;
+    margin-left: 2px;
+    height: 7px;
+    width: 323px;
+    border-left: 4px solid #E6E6E6;
+    border-right: 10px solid #E6E6E6;
+    border-bottom: 10px solid #E6E6E6;
+    height: 340px;
+    padding: 5px 0;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: -0.0252233% !important;
+    right: 1.27605% !important;
+    top: 230.903% !important;
+}
+
+.projeto-descricao2 {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: -0.0252233% !important;
+    right: 1.27605% !important;
+    top: 275.416% !important;
+    text-align: center;
+}
+
+.quarto-background {
+    text-align: center;
+    width: 100%;
+    height: 40%;
+    background-color: #ff9f43;
+    display: inline-block;
+    position: absolute;
+    right: -0.00932836%;
+    top: 296.416%
+}
+
+.ponto {
+    font-size: 35px;
+}
+
+.area {
+    width: 320px;
+    height: 270px;
+    position: absolute;
+    margin: 0 auto;
+    left: 0%;
+    right: 0%;
+    bottom: 261% !important;
+    top: 32.767% !important;
+}
+
+.area .formulario {
+    position: absolute;
+    display: block;
 }

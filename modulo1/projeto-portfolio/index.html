@@ -5,6 +5,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,800;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,800;1,300;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,300;1,700&display=swap"
+        rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,43 +31,99 @@
 </head>
 
 <body>
-    <header>Douglas Henrique </header>
+    <header id="home"><img src="./Imgs/logo.png" height="80" width="110"> </header>
 
-    <div id="container-menu">
-        <ul id="menu">
-            <li>home</li>
-            <li>sobre mim</li>
-            <li>projetos</li>
+    <div class="container-menu">
+        <ul class="menu">
+            <li><a href="#home">home</a></li>
+            <li><a href="#sobre-mim">sobre mim</a></li>
+            <li><a href="#projetos">projetos</a></li>
+            <li><a href="#ancora-contato">contato</a></li>
         </ul>
     </div>
     </div>
 
-    <div id="github">
-        <p>github</p>
+    <div class="github">
+        <a href="https://github.com/douggx"><img src="./Imgs/github.png" height="40" width="40" alt="GitHub"></a>
     </div>
 
-    <div id="linkedin">
-        <p>linkedin</p>
+    <div class="linkedin">
+        <a href="https://www.linkedin.com/in/douglas-henrique-840808216/"><img src="./Imgs/linkedin.png" height="40"
+                width="40" alt="Linkedin"></a>
     </div>
 
-    <div id="facebook">
-        <p>facebook</p>
+    <div class="facebook">
+        <a href="https://www.facebook.com/dougggx"><img src="./Imgs/facebook.png" height="40" width="40"
+                alt="Facebook"></a>
     </div>
 
-    <div id="texto">
-        <p>Olá, eu sou douglas<br>alsdkoapskdpqomfap<br>fmsamapsfmapsimfasjpifmjpsadpaidpamfkapsfjaps</p>
+    <div class="texto">
+        <p class="semi-bold">Douglas Henrique</p>
+        <p class="texto-margin">Front-end Developer<br></p>
+        <div class="linha-horizontal"></div>
     </div>
 
-    <div id="novo-background">
+    <div class="novo-background" id="sobre-mim">
         <p>⠀</p>
     </div>
 
-    <div id="texto2">
-        <p>Lorem ipsum dolor <br>sciendis earum atque, nihil <br>eligendi, sequi nam consectetur!</p>
+    <div class="texto2">
+        <img src="./Imgs/sobre mim2.png">
+        <p>Olá, eu sou o Douglas :)<br>Sou um entusiasta pela tecnologia,<br> estudante longevo e atualmente<br>
+            cursando web development na Labenu.<br>Apaixonado por cinema e video-games.</p>
+        <img class="imagem-html" src="./Imgs/html, js, css.jpg" height="200" width="500"> <br>
+        <img src="./Imgs/git.png" height="130" width="130">
     </div>
 
-    <div id="terceiro-background">
-            <p>⠀</p>
+    <div class="texto3">
+        <img src="./Imgs/skills.png">
+        <p class="ponto">● HTML, CSS, JavaScript, Git.<br> ● Trabalho em equipe <br> ●Determinação <br></p>
+        <button class="botão-curriculo" name="curriculo">➤ Currículo</button>
+    </div>
+
+    <div class="terceiro-background">
+        <br>
+        <img id="projetos" src="./Imgs/projetos.png">
+        <p>⠀</p>
+    </div>
+
+    <div class="projeto-content1">
+
+    </div>
+    <div class="projeto-descricao1">
+        <p>Linguages usadas: </p>
+        <p>O que eu aprendi: </p>
+    </div>
+
+    <div class="projeto-content2"></div>
+
+    <div class="projeto-descricao2">
+        <p>Linguages usadas: </p>
+        <p>O que eu aprendi: </p>
+    </div>
+
+    <div class="quarto-background" id="ancora-contato">
+        <p>⠀</p>
+        <img id="contate-me" src="./Imgs/contate-me.png">
+        <br>
+        <br>
+        <div class="area">
+            <form class="formulario" method="post">
+                <fieldset>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" />
+                    <br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" />
+                    <br>
+                    <label for="msg">Conteudo:</label>
+                    <textarea id="msg"></textarea>
+                    <input type="submit" value="Enviar!">
+        </div>
+        </fieldset>
+        </form>
+    </div>
+
     </div>
 </body>
 
