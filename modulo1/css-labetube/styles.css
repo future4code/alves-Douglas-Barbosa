@@ -8,8 +8,8 @@ body {
     width: 199.3vh;
     height: 100vh;
     grid-template-areas: 'head head head head'
-                          'main main main main'
-                          'foot foot foot foot';
+        'main main main main'
+        'foot foot foot foot';
 }
 
 header {
@@ -18,7 +18,7 @@ header {
     background-color: #ef843a;
     align-items: center;
     justify-content: space-between;
-        
+
 }
 
 header h1 {
@@ -34,7 +34,7 @@ main {
     grid-area: main;
     background-color: white;
     min-height: 60vh;
-    
+
 }
 
 footer {
@@ -54,12 +54,47 @@ footer h1 {
 
 main {
     display: grid;
-    width: 199vh;
+    width: 180vh;
     grid-template-rows: 350px 350px;
-    grid-template-columns: 450px 450px 450px 450px;
+    grid-template-columns: 350px 350px 350px 350px;
     align-items: center;
     justify-items: center;
     margin-left: auto;
+}
+
+@media screen and (min-width : 220px) and (max-width : 480px) {
+
+    main {
+        width: 198vh;
+        grid-template-columns: 500px;
+        grid-template-rows: 400px;
+        justify-items: flex-start;
+        gap: 10px;
+        align-items: end;
+        margin-left:10px;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        width: 57.3vh;
+        height: 10vh;
+    }
+
+    footer {
+        position: absolute;
+        bottom: -1918px !important;
+        width: 57vh;
+    }
+
+    #videocard {
+        width: 44vh;
+        height: 37vh;
+    }
+
+    #videocard img {
+        width: 100%;
+    }
 }
 
 #videocard {
@@ -76,5 +111,5 @@ main video {
     position: relative;
     width: 1024px;
     height: 20px;
-    margin:0 auto;
+    margin: 0 auto;
 }
