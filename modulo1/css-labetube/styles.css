@@ -62,29 +62,27 @@ main {
     margin-left: auto;
 }
 
-@media screen and (min-width : 220px) and (max-width : 480px) {
+@media screen and (min-width : 220px) and (max-width : 680px) {
 
     main {
-        width: 198vh;
-        grid-template-columns: 500px;
-        grid-template-rows: 400px;
-        justify-items: flex-start;
+        grid-template-columns: 100%;
+    grid-template-rows: 400px;
+        justify-items: center;
         gap: 10px;
         align-items: end;
-        margin-left:10px;
-    }
+    } 
 
     header {
         position: fixed;
         top: 0;
-        width: 57.3vh;
+        width: 100%;
         height: 10vh;
     }
 
     footer {
         position: absolute;
         bottom: -1918px !important;
-        width: 57vh;
+        width: 100%;
     }
 
     #videocard {
@@ -95,7 +93,18 @@ main {
     #videocard img {
         width: 100%;
     }
-}
+
+    body {
+            display: flex;
+            width: auto;
+            height: 100vh;
+            grid-template-areas: 'head'
+                'main'
+                'main'
+                'main';
+                
+    }
+    }
 
 #videocard {
     border: 2px solid green;
