@@ -10,6 +10,15 @@ body {
     grid-template-areas: 'head head head head'
         'main main main main'
         'foot foot foot foot';
+        font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+h3 {
+    font-weight: 500;
 }
 
 header {
@@ -121,4 +130,8 @@ main video {
     width: 1024px;
     height: 20px;
     margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
 }
