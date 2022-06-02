@@ -75,13 +75,14 @@ main {
 
     main {
         grid-template-columns: 100%;
-    grid-template-rows: 400px;
+        grid-template-rows: 58%;
         justify-items: center;
-        gap: 10px;
         align-items: end;
+        gap: 2%;
     } 
 
     header {
+        justify-content: space-between;
         position: fixed;
         top: 0;
         width: 100%;
@@ -90,13 +91,12 @@ main {
 
     footer {
         position: absolute;
-        bottom: -1918px !important;
+        bottom: -301.154% !important;
         width: 100%;
     }
 
     #videocard {
         width: 44vh;
-        height: 37vh;
     }
 
     #videocard img {
@@ -110,7 +110,9 @@ main {
             grid-template-areas: 'head'
                 'main'
                 'main'
-                'main';
+                'main'
+                ;
+                gap: 2%;
                 
     }
     }
