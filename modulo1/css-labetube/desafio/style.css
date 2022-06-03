@@ -1,0 +1,76 @@
+body{
+    display: grid;
+    grid-template-rows: 2vw 25vw 7vw 2vw;
+    grid-template-columns: 15vw 18vw 12vw;
+    grid-template-areas: 'header nav nav'
+                         'main main main'
+                         'content nada side'
+                         'foot foot foot';   
+}
+
+header{
+    
+    grid-area: header;
+    background-color: #38ca49;
+}
+
+#menu{
+    
+    grid-area: nav;
+    background-color: #feda31
+}
+
+#content1 {
+    
+    grid-area: main;
+    background-color: #ed25bc;
+}
+
+#content2{
+    grid-area: content;
+    background-color: #1277d6;
+    width: 150%;
+}
+
+#image{
+    display: flex;
+    flex-direction: column;
+    grid-area: side;
+    background-color: #fc433e;
+    justify-content: center;
+    text-align: center;
+    align-items: stretch;
+    flex-grow: 1;
+}
+
+footer{
+    
+    grid-area: foot;
+    background-color: #af22c6;
+}
+
+main {
+    background-color:#ed25bc ;
+    width: 45vw;
+    height: 25vw;
+    grid-template-columns: auto;
+    grid-template-rows: 5vw 5vw;
+
+}
+
+#nada {
+    grid-area: nada;
+}
+
+#cordoimage{
+    background-color: #fc433e;
+    padding-bottom: 4%;
+
+}
+
+#cordoextra{
+    background-color:#2afd77;
+    padding-bottom: 14.2%;
+    padding-top: 0%;
+    flex-grow: 1;
+}
