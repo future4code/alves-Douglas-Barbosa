@@ -16,7 +16,17 @@ export default class PerguntaOpcoesClasse extends Component {
         }
     }
 
-    
+    mudar = () => {
+        let resp = this.props.mudarEnsinoMedio(this.setState({ ensino: "medio" }))
+        console.log(resp)
+        console.log("oi")
+    }
+
+    mudarSuperior = () => {
+        let rasp = this.props.mudarEnsinoSuperior(this.setState({ ensino: "superior"}))
+        console.log(rasp)
+        console.log("oi")
+    }
 
 
     render() {
@@ -24,10 +34,10 @@ export default class PerguntaOpcoesClasse extends Component {
             <DivPrincipal>
                 <h3>{this.props.pergunta}</h3>
                 <select>
-                    <option onClick={this.props.funcao} value={this.props.opcoes[0]}>{this.props.opcoes[0]}</option>
-                    <option onClick={this.funcao} value={this.props.opcoes[1]}>{this.props.opcoes[1]}</option>
-                    <option onClick={this.mudarEnsinoSuperior} value={this.props.opcoes[2]}>{this.props.opcoes[2]}</option>
-                    <option onClick={this.mudarEnsinoSuperior} value={this.props.opcoes[3]}>{this.props.opcoes[3]}</option>
+                    <option onClick={this.mudar} value={this.props.opcoes[0]}>{this.props.opcoes[0]}</option>
+                    <option onClick={this.mudar} value={this.props.opcoes[1]}>{this.props.opcoes[1]}</option>
+                    <option onClick={this.mudarSuperior} value={this.props.opcoes[2]}>{this.props.opcoes[2]}</option>
+                    <option onClick={this.mudarSuperior} value={this.props.opcoes[3]}>{this.props.opcoes[3]}</option>
                 </select>
             </DivPrincipal>
         )
