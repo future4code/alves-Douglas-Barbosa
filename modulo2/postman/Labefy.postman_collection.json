@@ -14,7 +14,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "\"douglas-barbosa-alves\"",
+						"value": "\"douglas-henrique-alves\"",
 						"type": "text"
 					}
 				],
@@ -116,13 +116,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "\"douglas-barbosa-alves\"",
+						"value": "\"douglas-henrique-alves\"",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"alternative rock\"\n}",
+					"raw": "{\n\t\"name\": \"pop punk\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -261,7 +261,7 @@
 					"variable": [
 						{
 							"key": "playlistId",
-							"value": "35cbd717-ea64-4b35-a371-b26782b267c0"
+							"value": "e7281bb1-2644-488a-999d-613fa0f20ce7"
 						}
 					]
 				},
