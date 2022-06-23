@@ -1,5 +1,23 @@
 import axios from "axios";
 import React, { Component } from 'react'
+import styled from "styled-components";
+
+const ContainerUsuarios = styled.div`
+border: 1px solid black;
+padding: 10px;
+margin-bottom: 20px;
+height: 40px;
+width: 300px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+button {
+    height: 22px;
+}
+
+
+`
 
 export default class Usuarios extends Component {
     state = {
@@ -16,73 +34,40 @@ export default class Usuarios extends Component {
         this.setState({ busca: e.target.value })
     }
 
-    // pegarUsuarios = () => {
-    //     axios
-    //       .get(
-    //         "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-    //         {
-    //           headers: {
-    //             Authorization: "douglas-henrique-alves"
-    //           }
-    //         }
-    //       )
-    //       .then((resposta) => {
-    //         console.log(resposta.data)
-    //         this.setState({ usuarios: resposta.data })
-
-    //       })
-    //       .catch((erro) => {
-    //         console.log(erro)
-    //         this.setState({ erro: erro.response })
-    //       })
-    //   }
-
-    // pegaUsuario = () => {
-    //    const buscaUsuario = {
-    //     name: this.state.busca,
-    //     email: this.state.busca
-    //    }
-
-    //     axios
-    //         .get(
-    //             "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=&email=",
-    //                 buscaUsuario,
-    //                 {
-    //                   headers: {
-    //                     Authorization: "douglas-henrique-alves"
-    //                   }
-    //                 }
-    //         ).then((resposta) => {
-    //             this.setState({ usuarios: resposta.data.result})
-    //         })
-    //         .catch((erro) => {
-    //             console.log(erro.response)
-    //         })
-    // }
-
-    removerUsuario = () => {
-        const id = this.props.usuario.id
-
+    removerUsuario = (id) => {
+       const confirmBox = window.confirm(
+        "Voce quer realmente remover esse usuario?"
+       )
+       if (confirmBox === true){
         axios
-        .delete(
-            `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
-            {
-                headers: {
-                    Authorization: "douglas-henrique-alves"
+            .delete(
+                `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+                {
+                    headers: {
+                        Authorization: "douglas-henrique-alves"
+                    }
                 }
-            }
-        )
+            )
+            .then((res) => {
+                alert("Usuario deletado com sucesso")
+            })
+            .catch((error) => {
+                alert(error.response.data)
+            })
+       }
+
+    
     }
 
     render() {
         return (
-            <main>
+            <ContainerUsuarios>
 
                 <h3>{this.props.usuario.name}</h3>
                 <button
-                onClick={this.removerUsuario}>
-                X</button>
-            </main>
+                    onClick={() => this.removerUsuario(this.props.usuario.id)}>
+                    X</button>
+            </ContainerUsuarios>
         )
     }
 }
