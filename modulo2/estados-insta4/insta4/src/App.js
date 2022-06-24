@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
 import Post from './components/Post/Post';
-<<<<<<< HEAD
-=======
 import { IconeComContador } from './components/IconeComContador/IconeComContador'
 import iconeComentario from './img/comment_icon.svg'
 import iconeMarcacaoPreto from './img/marcacaoPreto.png'
@@ -10,7 +8,6 @@ import iconeMarcacaoBranco from './img/marcacaoBranco.png'
 import iconeCoracaoBranco from './img/favorite-white.svg'
 import iconeCoracaoPreto from './img/favorite.svg'
 import { SecaoComentario } from './components/SecaoComentario/SecaoComentario'
->>>>>>> bf39b28456d7429834d24e2d2123e8208029d1c4
 
 const MainContainer = styled.div`
   display: flex;
@@ -19,29 +16,6 @@ const MainContainer = styled.div`
   align-items: center;
 `
 
-<<<<<<< HEAD
-class App extends React.Component {
-  render() {
-    return (
-      <MainContainer>
-        <Post
-          nomeUsuario={'paulinha'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
-
-        <Post
-        nomeUsuario={'Arnold'}
-        fotoUsuario={'https://i.pinimg.com/736x/e3/dd/31/e3dd31d565d655c092da9a0fee75df79--hey-arnold-avatar.jpg'}
-        fotoPost={'https://picsum.photos/id/237/536/354'}
-        />
-
-        <Post
-        nomeUsuario={'Helga'}
-        fotoUsuario={'https://cdn.costumewall.com/wp-content/uploads/2017/10/helga.jpg'}
-        fotoPost={'https://picsum.photos/536/354'}
-        />
-=======
 const PostContainer = styled.div`
   border: 1px solid gray;
   width: 300px;
@@ -270,7 +244,6 @@ class App extends React.Component {
           placeholder={"Link: Imagem a ser postada"}
         />
         <button onClick={this.adicionaPostagem}>Postar</button>
->>>>>>> bf39b28456d7429834d24e2d2123e8208029d1c4
       </MainContainer>
     );
   }
