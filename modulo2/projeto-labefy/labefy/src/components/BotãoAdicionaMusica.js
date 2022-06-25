@@ -1,33 +1,67 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import TelaLogado from './TelaLogado'
+import styled from 'styled-components'
+
+const Botão = styled.button`
+height: 23px;
+width: 20px;
+`
+const Input = styled.input`
+appearance: none;
+background-image: none;
+border: 0px none;
+display: block;
+font-size: 1rem;
+line-height: 1.5rem;
+font-weight: 400;
+width: 150px;
+box-sizing: border-box;
+margin-top: 0px;
+margin-bottom: 0px;
+border-radius: 4px;
+background-color: var(--background-base,#ffffff);
+box-shadow: inset 0 0 0 1px var(--essential-subdued,#878787);
+color: var(--text-base,#000000);
+`
+const DescriçãoInputs = styled.p`
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-bottom: 5px;
+`
+
+const DescriçãoInputsMeio = styled.p`
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-bottom: 5px;
+  padding-top: 5px;
+`
 
 export default class BotãoAdicionaMusica extends Component {
 
     iconAddMusic = () => {
         if (this.props.adicionarMusica === false) {
-            return <button
-                onClick={this.props.changeStateAddMusic}>+</button>
+            return <Botão
+                onClick={this.props.changeStateAddMusic}>+</Botão>
         } else {
             return <div>
-                <h4>Adicione uma musica <button
-                    onClick={this.props.changeStateAddMusic}>-</button></h4>
+                <h4>Adicione uma musica <Botão
+                    onClick={this.props.changeStateAddMusic}>-</Botão></h4>
                 <label>
-                    <p>Nome da musica:</p>
-                    <input
+                    <DescriçãoInputs>Nome da musica:</DescriçãoInputs>
+                    <Input
                         value={this.props.nomeMusica}
                         onChange={this.props.handleNomeMusica}
-                    ></input>
-                    <p>Artista:</p>
-                    <input
+                    ></Input>
+                    <DescriçãoInputs>Artista:</DescriçãoInputs>
+                    <Input
                         value={this.props.nomeArtista}
                         onChange={this.props.handleNomeArtista}
-                    ></input>
-                    <p>Url:</p>
-                    <input
+                    ></Input>
+                    <DescriçãoInputs>Url:</DescriçãoInputs>
+                    <Input
                         value={this.props.inputUrl}
                         onChange={this.props.handleUrl}
-                    ></input>
+                    ></Input>
                     <button
                         onClick={() => this.apiAdicionaMusica(this.props.playlist.id)}>Enviar</button>
                 </label>
@@ -69,8 +103,7 @@ export default class BotãoAdicionaMusica extends Component {
 
 
     render() {
-        <TelaLogado
-        apiAdicionaMusica={this.apiAdicionaMusica}></TelaLogado>
+       
         return (
             <div>{this.iconAddMusic()}</div>
         )

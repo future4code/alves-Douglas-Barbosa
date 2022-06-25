@@ -4,6 +4,33 @@ import styled from 'styled-components'
 import Musicas from './Musicas'
 import BotãoAdicionaMusica from './BotãoAdicionaMusica'
 
+const DivPrincipal = styled.div`
+display: grid;
+justify-content: center;
+margin-bottom: 50px;
+border: 1px solid;
+padding: 10px;
+border-radius: 10px;
+margin-top: 15px;
+background-color: #ff3c009e;
+`
+
+const DivTituloPlaylist = styled.div`
+display: flex;
+flex-direction: row;
+padding-bottom: 10px;
+gap:7px;
+align-items: center;
+`
+const Botão = styled.button`
+height: 23px;
+width: 20px;
+`
+const PnomePlaylist = styled.p`
+display: grid;
+align-content: center;
+`
+
 export default class TelaLogado extends Component {
     state = {
         playlists: [],
@@ -227,11 +254,12 @@ export default class TelaLogado extends Component {
 
         const listaPlaylists = this.state.playlists.map((playlist) => {
             return (
-                <div
+                <DivPrincipal
                     key={playlist.id}>
-                    <h1>{playlist.name} <button
-                        onClick={() => this.deletarPlaylist(playlist.id)}>x</button>
+                    <DivTituloPlaylist><PnomePlaylist>Nome da playlist:</PnomePlaylist><h1>{playlist.name} 
                         </h1>
+                        <Botão
+                        onClick={() => this.deletarPlaylist(playlist.id)}>x</Botão>
                         <BotãoAdicionaMusica 
                         adicionarMusica={this.state.adicionarMusica}
                         changeStateAddMusic={this.changeStateAddMusic}
@@ -246,7 +274,7 @@ export default class TelaLogado extends Component {
                         sobrenome={this.props.sobrenome}
                         turma={this.props.turma}
                         playlistDeleted={this.aPlaylistWasDeleted}
-                        />
+                        /></DivTituloPlaylist>
 
                         
                     
@@ -255,7 +283,7 @@ export default class TelaLogado extends Component {
                         sobrenome={this.props.sobrenome}
                         turma={this.props.turma}
                         id={playlist.id}></Musicas>
-                </div>
+                </DivPrincipal>
             )
         })
         return (

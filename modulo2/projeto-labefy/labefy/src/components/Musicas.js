@@ -41,9 +41,10 @@ export default class Musicas extends Component {
         return (
             <div
             key={musica.id}>
-                <p>{musica.name}</p>
-                <p>{musica.artist}</p>
-                <p>{musica.url}</p>
+                <p>Musica:{musica.name}</p>
+                <p>Artista:{musica.artist}</p>
+                <p>Url:{musica.url}</p>
+                <br></br>
 
             </div>
         )

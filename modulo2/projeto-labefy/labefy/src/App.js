@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
 import TelaLogin from './components/TelaLogin'
 import TelaLogado from './components/TelaLogado'
+import styled from 'styled-components'
+import { Footer, GridLayout, Header, Main } from './components/GridLayout'
+import Labefy from '../src/assets/labefy.png'
+
+const LogoLabefy = styled.img`
+margin-top: 20px;
+margin-bottom: 10px;
+height: 10vh;
+box-shadow: 5px;
+`
 
 export default class App extends Component {
   state = {
@@ -36,7 +46,7 @@ export default class App extends Component {
         handleSobrenome={this.handleSobrenome}
         handleTurma={this.handleTurma}
         handleLogin={this.handleLogin}
-      />
+      /> 
     } else {
       return <TelaLogado
       nome={this.state.nome}
@@ -51,7 +61,13 @@ export default class App extends Component {
     
 
     return (
-      <div>{this.renderizaTela()}</div>
+      <GridLayout>
+        <Header>
+          <LogoLabefy src={Labefy}></LogoLabefy>
+        </Header>
+        <Main>{this.renderizaTela()}</Main>
+        <Footer></Footer>
+        </GridLayout>
     )
   }
 }
