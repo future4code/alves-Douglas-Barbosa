@@ -232,7 +232,21 @@ export default class TelaLogado extends Component {
                     <h1>{playlist.name} <button
                         onClick={() => this.deletarPlaylist(playlist.id)}>x</button>
                         </h1>
-                        {this.iconAddMusic(playlist.id)}
+                        <BotãoAdicionaMusica 
+                        adicionarMusica={this.state.adicionarMusica}
+                        changeStateAddMusic={this.changeStateAddMusic}
+                        nomeMusica={this.state.nomeMusica}
+                        nomeArtista={this.state.nomeArtista}
+                        inputUrl={this.state.inputUrl}
+                        handleNomeMusica={this.handleNomeMusica}
+                        handleNomeArtista={this.handleNomeArtista}
+                        handleUrl={this.handleUrl}
+                        playlist={playlist}
+                        nome={this.props.nome}
+                        sobrenome={this.props.sobrenome}
+                        turma={this.props.turma}
+                        playlistDeleted={this.aPlaylistWasDeleted}
+                        />
 
                         
                     
