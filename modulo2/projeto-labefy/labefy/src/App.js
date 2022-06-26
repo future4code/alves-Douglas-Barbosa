@@ -12,6 +12,11 @@ height: 10vh;
 box-shadow: 5px;
 `
 
+const Pstilizado = styled.p`
+color: #dcdde1;
+padding: 50px;
+`
+
 export default class App extends Component {
   state = {
     nome: "",
@@ -46,19 +51,19 @@ export default class App extends Component {
         handleSobrenome={this.handleSobrenome}
         handleTurma={this.handleTurma}
         handleLogin={this.handleLogin}
-      /> 
+      />
     } else {
       return <TelaLogado
-      nome={this.state.nome}
-      sobrenome={this.state.sobrenome}
-      turma={this.state.turma}
-    />
+        nome={this.state.nome}
+        sobrenome={this.state.sobrenome}
+        turma={this.state.turma}
+      />
     }
   }
 
 
   render() {
-    
+
 
     return (
       <GridLayout>
@@ -66,8 +71,12 @@ export default class App extends Component {
           <LogoLabefy src={Labefy}></LogoLabefy>
         </Header>
         <Main>{this.renderizaTela()}</Main>
-        <Footer></Footer>
-        </GridLayout>
+        <Footer>
+          <Pstilizado>
+            Labefy ® - 2022 - Todos os direitos reservados
+          </Pstilizado>
+        </Footer>
+      </GridLayout>
     )
   }
 }

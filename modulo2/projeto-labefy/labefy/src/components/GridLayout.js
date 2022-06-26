@@ -11,7 +11,7 @@ grid-template-areas:
 "footer";
 grid-template-rows: 1fr 8fr 1fr;
 background-color: #353b48;
-` 
+`
 
 export const Header = styled.header`
 grid-area: header;
@@ -33,4 +33,7 @@ justify-content: center;
 
 export const Footer = styled.footer`
 grid-area: footer;
+display: flex;
+justify-content: center;
+background-color: #353b48;
 `

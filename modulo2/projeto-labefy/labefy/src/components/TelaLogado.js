@@ -13,6 +13,15 @@ padding: 10px;
 border-radius: 10px;
 margin-top: 15px;
 background-color: #ff3c009e;
+
+@media (max-width: 674px) {
+    padding: 5px;
+  }
+
+  @media (max-width: 665px) {
+    width: 500px;
+  }
+
 `
 
 const DivTituloPlaylist = styled.div`
@@ -21,6 +30,7 @@ flex-direction: row;
 padding-bottom: 10px;
 gap:7px;
 align-items: center;
+justify-content: center;
 `
 const Botão = styled.button`
 height: 23px;
@@ -29,6 +39,13 @@ width: 20px;
 const PnomePlaylist = styled.p`
 display: grid;
 align-content: center;
+font-weight: 600;
+font-size: 1.2rem;
+color: #2f3640;
+`
+
+const BotãoCriarPlaylist = styled.button`
+margin-top: 10px;
 `
 
 export default class TelaLogado extends Component {
@@ -50,9 +67,9 @@ export default class TelaLogado extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (this.state.playlists !== prevState) {
+        if (this.state.playlists !== prevState.playlists) {
             this.pegarPlaylists()
-        } else if (this.state.playlistDeletada !== prevState) {
+        } else if (this.state.playlistDeletada !== prevState.playlists) {
             this.pegarPlaylists()
         }
     }
@@ -120,8 +137,8 @@ export default class TelaLogado extends Component {
 
     criarPlaylist = () => {
         if (this.state.criarPlaylist === false) {
-            return <button
-                onClick={this.changeStateCriarPlaylist}>Criar playlist</button>
+            return <BotãoCriarPlaylist
+                onClick={this.changeStateCriarPlaylist}>Criar playlist</BotãoCriarPlaylist>
         } else {
             return <div>
                 <h1>Crie sua playlist</h1>
@@ -143,23 +160,30 @@ export default class TelaLogado extends Component {
         const sobrenome = this.props.sobrenome
         const turma = this.props.turma
 
-        axios
-            .delete(
-                `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`,
-                {
-                    headers: {
-                        Authorization: `${nome}-${sobrenome}-${turma}`
+        const confirmBox = window.confirm(
+            "Voce quer realmente deletar essa playlist?"
+        )
+        if (confirmBox === true) {
+            axios
+                .delete(
+                    `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`,
+                    {
+                        headers: {
+                            Authorization: `${nome}-${sobrenome}-${turma}`
+                        }
                     }
-                }
-            )
-            .then((res) => {
-                console.log(res.data)
+                )
+                .then((res) => {
+                    alert("Playlist deletada com sucesso!")
+                    console.log(res.data)
 
 
-            })
-            .catch((erro) => {
-                console.log(erro.response)
-            })
+                })
+                .catch((erro) => {
+                    alert(erro.response)
+                })
+        }
+
     }
 
     aPlaylistWasDeleted = () => {
@@ -168,31 +192,36 @@ export default class TelaLogado extends Component {
 
     handleNomeMusica = (e) => {
         this.setState({ nomeMusica: e.target.value })
-        console.log(this.state.nomeMusica)
     }
 
     handleNomeArtista = (e) => {
         this.setState({ nomeArtista: e.target.value })
-        console.log(this.state.nomeArtista)
     }
 
     handleUrl = (e) => {
         this.setState({ inputUrl: e.target.value })
-        console.log(this.state.inputUrl)
     }
 
     changeStateAddMusic = () => {
-        this.setState({adicionarMusica: !this.state.adicionarMusica})
+        this.setState({ adicionarMusica: !this.state.adicionarMusica })
+    }
+
+    limparInputs = () => {
+        this.setState({
+            nomeMusica: "",
+            nomeArtista: "",
+            inputUrl: ""
+        })
     }
 
     iconAddMusic = () => {
         if (this.state.adicionarMusica === false) {
             return <button
-            onClick={this.changeStateAddMusic}>+</button>
+                onClick={this.changeStateAddMusic}>➕</button>
         } else {
-            return <div> 
+            return <div>
                 <h4>Adicione uma musica <button
-            onClick={this.changeStateAddMusic}>-</button></h4>
+                    onClick={this.changeStateAddMusic}>➖</button></h4>
                 <label>
                     <p>Nome da musica:</p>
                     <input
@@ -244,7 +273,7 @@ export default class TelaLogado extends Component {
 
             })
             .catch((erro) => {
-                console.log(erro.response)
+                alert(erro.response)
             })
     }
 
@@ -256,29 +285,31 @@ export default class TelaLogado extends Component {
             return (
                 <DivPrincipal
                     key={playlist.id}>
-                    <DivTituloPlaylist><PnomePlaylist>Nome da playlist:</PnomePlaylist><h1>{playlist.name} 
-                        </h1>
+                    <DivTituloPlaylist><PnomePlaylist>Nome da playlist:</PnomePlaylist><h1>{playlist.name}
+                    </h1>
                         <Botão
-                        onClick={() => this.deletarPlaylist(playlist.id)}>x</Botão>
-                        <BotãoAdicionaMusica 
-                        adicionarMusica={this.state.adicionarMusica}
-                        changeStateAddMusic={this.changeStateAddMusic}
-                        nomeMusica={this.state.nomeMusica}
-                        nomeArtista={this.state.nomeArtista}
-                        inputUrl={this.state.inputUrl}
-                        handleNomeMusica={this.handleNomeMusica}
-                        handleNomeArtista={this.handleNomeArtista}
-                        handleUrl={this.handleUrl}
-                        playlist={playlist}
-                        nome={this.props.nome}
-                        sobrenome={this.props.sobrenome}
-                        turma={this.props.turma}
-                        playlistDeleted={this.aPlaylistWasDeleted}
+                            onClick={() => this.deletarPlaylist(playlist.id)}>x</Botão>
+                        <BotãoAdicionaMusica
+                            adicionarMusica={this.state.adicionarMusica}
+                            changeStateAddMusic={this.changeStateAddMusic}
+                            nomeMusica={this.state.nomeMusica}
+                            nomeArtista={this.state.nomeArtista}
+                            inputUrl={this.state.inputUrl}
+                            handleNomeMusica={this.handleNomeMusica}
+                            handleNomeArtista={this.handleNomeArtista}
+                            handleUrl={this.handleUrl}
+                            playlist={playlist}
+                            nome={this.props.nome}
+                            sobrenome={this.props.sobrenome}
+                            turma={this.props.turma}
+                            playlistDeleted={this.aPlaylistWasDeleted}
+                            limparInputs={this.limparInputs}
                         /></DivTituloPlaylist>
 
-                        
-                    
+
+
                     <Musicas
+                        changeStateAddMusic={this.changeStateAddMusic}
                         nome={this.props.nome}
                         sobrenome={this.props.sobrenome}
                         turma={this.props.turma}

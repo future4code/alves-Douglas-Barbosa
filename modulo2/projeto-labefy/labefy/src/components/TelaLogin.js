@@ -50,6 +50,7 @@ margin-top: 12px;
 
 :hover {
     transform: scale(1.04);
+    background-color: var(--background-base,#e75c3c)
 }
 `
 
@@ -60,7 +61,7 @@ export default class TelaLogin extends Component {
 
         return (
             <DivPrincipal>
-                
+
                 <label>
                     <DescriçãoInputs>Nome </DescriçãoInputs>
                     <Input
@@ -76,7 +77,7 @@ export default class TelaLogin extends Component {
                         onChange={this.props.handleTurma} />
                 </label>
                 <BotãoLogin
-                onClick={this.props.handleLogin}>
+                    onClick={this.props.handleLogin}>
                     <DescriçãoInputs>Login</DescriçãoInputs>
                 </BotãoLogin>
             </DivPrincipal>

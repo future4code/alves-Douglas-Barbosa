@@ -92,8 +92,9 @@ export default class BotãoAdicionaMusica extends Component {
                 }
             )
             .then((res) => {
-                console.log(res.data)
                 alert("Musica adicionada com sucesso!")
+                this.props.changeStateAddMusic()
+                this.props.limparInputs()
 
             })
             .catch((erro) => {
@@ -103,7 +104,7 @@ export default class BotãoAdicionaMusica extends Component {
 
 
     render() {
-       
+
         return (
             <div>{this.iconAddMusic()}</div>
         )
