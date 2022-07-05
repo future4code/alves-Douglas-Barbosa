@@ -6,7 +6,7 @@ justify-content: center;
 align-items: center;
 `
 
-export const MainContainer = styled.main`
+export const MainContainer = styled.div`
 display: flex;
 width: 374px;
 height: 812px;
