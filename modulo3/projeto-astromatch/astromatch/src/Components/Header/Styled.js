@@ -20,6 +20,7 @@ font-size: 24px;
 line-height: 36px;
 text-align: center;
 color: #333333;
+cursor: pointer;
 `
 
 export const SpanOrange = styled.span`
@@ -27,6 +28,10 @@ color: #FF4E40;
 `
 export const StyledButton = styled.img`
 margin-right: 13.06px;
-
-
+cursor: pointer;
+transform: scale(1.0);
+transition-duration: 0.8s;
+:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;}
 `
