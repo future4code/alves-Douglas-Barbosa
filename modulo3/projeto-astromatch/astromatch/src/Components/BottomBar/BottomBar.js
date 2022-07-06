@@ -15,7 +15,7 @@ export default function BottomBar(props) {
 
     axios
       .post(
-        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglas/choose-person`,
+        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/choose-person`,
         body,
         {
           headers: {
