@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import BackgroundImagem from '../Assets/wallpaper.jpg'
-import { ContainerShadowBottom, ContainerShadowTop } from './Styled';
+import { ContainerShadowBottom, ContainerShadowTop, StyledDescrição, StyledNome } from './Styled';
 
 const ContainerCard = styled.div`
 display: flex;
@@ -18,6 +18,8 @@ export default function Card(props) {
   return (
     <ContainerCard>
       <ContainerShadowTop />
+      <StyledNome>Donnie Darko, 19</StyledNome>
+      <StyledDescrição>A man that tragically died in his home in a plane crash..</StyledDescrição>
       <ContainerShadowBottom />
     </ContainerCard>
   )

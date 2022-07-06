@@ -34,3 +34,35 @@ border-radius: 24px;
 
 background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 `
+
+export const StyledNome = styled.p`
+position: absolute;
+width: 233px;
+height: 42px;
+left: 22px;
+top: 490px;
+color: white;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 42px;
+z-index: 2;
+`
+
+export const StyledDescrição = styled.p`
+position: absolute;
+width: 240px;
+height: 46px;
+left: 22px;
+top: 533px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-size: 15px;
+line-height: 22px;
+
+color: white;
+z-index: 2;
+`
