@@ -11,6 +11,12 @@ border-radius: 24px;
 background-repeat: no-repeat;
 background-size: cover, contain;
 background-position: center;
+transform: scale(1.0);
+transition-duration: 0.2s;
+:hover {
+  transform: scale(1.009);
+  transition-duration: 0.2s;
+}
 `
 
 export const ContainerShadowTop = styled.div`

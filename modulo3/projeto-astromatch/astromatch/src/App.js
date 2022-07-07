@@ -1,42 +1,37 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import Header from "./Components/Header/Header";
-import Card from "./Components/Card/Card";
-import { MainContainer } from "./Styled";
-import BottomBar from "./Components/BottomBar/BottomBar";
-import HomeBottomHr from "./Components/HomeBottomHr/HomeBottomHr";
+import Home from "./Components/Pages/Home/Home";
+import Matches from "./Components/Pages/Matches/Matches";
 
 function App() {
-  const [person, setPerson] = useState([])
+  const [page, setPage] = useState("home")
 
-  useEffect(() => {
-    axios
-      .get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/person')
-      .then((res) => setPerson(res.data.profile))
-      .catch((err) => alert(err.response))
-  }, []);
+  // Conditional Rendering and setPages
 
-  const getNewPerson = () => {
-    axios
-      .get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/person')
-      .then((res) => setPerson(res.data.profile))
-      .catch((err) => alert(err.response))
+  const renderPage = () => {
+    if (page === "home") {
+      return <Home 
+      setPageToMatches={setPageToMatches}
+      page={page}/>
+    } else if (page === "matches") {
+      return <Matches
+      home={setPageToHome} />
+    }
   }
 
+  const setPageToMatches = () => {
+    setPage("matches")
+  }
+
+  const setPageToHome = () => {
+    setPage("home")
+  }
+
+  //
+  
   return (
-    <MainContainer>
-      <Header />
-      <Card
-        id={person.id}
-        name={person.name}
-        age={person.age}
-        bio={person.bio}
-        photo={person.photo} />
-      <BottomBar 
-      id={person.id}
-      getNewPerson={getNewPerson}/>
-      <HomeBottomHr />
-    </MainContainer>
+    <>
+      {renderPage()}
+    </>
   );
 }
 

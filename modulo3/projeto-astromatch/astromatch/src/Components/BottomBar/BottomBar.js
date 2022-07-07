@@ -25,26 +25,26 @@ export default function BottomBar(props) {
       )
       .then((res) => {
         if (res.data.isMatch === true) {
-          alert("Voces deram match! <3")
+          alert("It's a Match! <3")
         }
         props.getNewPerson()
 
       })
       .catch((error) => {
-        alert("Erro :( vai com calma..")
+        alert("Error :( take it easy, buddy..")
         props.getNewPerson()
       })
 
   }
 
   const AlertSuperLike = () => {
-    alert("Parece que você não é um assinante AstroMatch. Estaremos habilitando essa funcionalidade em alguns anos luz!")}
+    alert("It looks like you are not an AstroMatch subscriber. We will be enabling this functionality in a few light years!")}
 
   return (
     <BarContainer>
-      <DislikeButton onClick={() => LikeOrDislike(false)} src={Dislike}></DislikeButton>
-      <SuperLikeButton onClick={AlertSuperLike} src={SuperLike}></SuperLikeButton>
-      <LikeButton onClick={() => LikeOrDislike(true)} src={Like}></LikeButton>
+      <DislikeButton onClick={() => LikeOrDislike(false)} src={Dislike} alt='dislike button'></DislikeButton>
+      <SuperLikeButton onClick={AlertSuperLike} src={SuperLike} alt='superlike button'></SuperLikeButton>
+      <LikeButton onClick={() => LikeOrDislike(true)} src={Like} alt='like button'></LikeButton>
     </BarContainer>
   )
 }
