@@ -27,6 +27,7 @@ Olá!
 │   ├── [Aula: CSS](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/css-bugfixes)
 
 │   ├── [Aula: CSS Labetube](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/css-labetube)
+
 └── [Projeto: BlackJack](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/projeto-blackjack)
 
 │   ├── [Aula: Flex-Grid](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/flex-grid)
