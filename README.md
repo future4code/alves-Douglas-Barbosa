@@ -1,7 +1,4 @@
-Boas-vindas!
-
-Esse repositório vai acompanhar vocês até o final do curso, para mantermos a organização, sugerimos que vocês sigam a seguinte estrutura:
-
+Olá!
 
 ├── [Modulo 1](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1)
 
@@ -17,7 +14,7 @@ Esse repositório vai acompanhar vocês até o final do curso, para mantermos a 
 
 │   ├── [Aula: Strings-Arrays](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/strings-arrays) 
 
-│   └── [Projeto: Exercicios JavaScript](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/projeto-lista-js)
+└── [Projeto: Exercicios JavaScript](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/projeto-lista-js)
 
 │   ├── [Aula: Objetos](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/objetos)
 
@@ -25,13 +22,12 @@ Esse repositório vai acompanhar vocês até o final do curso, para mantermos a 
 
 │   ├── [Aula: Laços](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/lacos)
 
-│   └── [Projeto: Revisão JavaScript](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/revisao-js)
-
-│   └── [Projeto: BlackJack](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/projeto-blackjack)
+└── [Projeto: Revisão JavaScript](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/revisao-js)
 
 │   ├── [Aula: CSS](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/css-bugfixes)
 
 │   ├── [Aula: CSS Labetube](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/css-labetube)
+└── [Projeto: BlackJack](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/projeto-blackjack)
 
 │   ├── [Aula: Flex-Grid](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/flex-grid)
 
@@ -39,15 +35,28 @@ Esse repositório vai acompanhar vocês até o final do curso, para mantermos a 
 
 └── [Projeto: Portfolio](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/projeto-portfolio)
 
+<hr>
+
+├── [Modulo 2](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo2)
+
+│   ├── [Aula: Props Labedin](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo2/props-labedin/labedin)
+
+│   ├── [Aula: JSX Labetube](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo2/jsx-labetube/LabeTube-Vanilla/labetube)
+
+└── [Projeto: Whatslab](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo2/projeto-whatslab/whatslab)
+
+│   ├── [Aula: Renderização Condicional](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo2/rend-condicional-form/labeforms/src)
+
+|   ├── [Aula: Ciclo de Vida](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo2/ciclo-vida-todo/boiler-plate)
+
+|   ├── [Aula: Apis Labenusers](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo2/apis-labenusers/labenusers)
+
+|   ├── [Aula: Revisão React](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo2/revisao-react/site-starwars)
+
+└── [Projeto: Labefy](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo2/projeto-labefy)
+
+
 ```
-|
-├── modulo2
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   └── nome-do-projeto
-|
 ├── modulo3
 │   ├── nome-da-aula
 │   ├── nome-da-aula
