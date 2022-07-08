@@ -9,6 +9,7 @@ import CardMatches from '../../CardMatches/CardMatches';
 import { DisplayMatches } from '../../CardMatches/Styled';
 import ResetMatches from '../../ResetMatches/ResetMatches';
 import DevelopedBy from '../../DevelopedBy/DevelopedBy';
+import { ToastContainer } from 'react-toastify';
 
 export default function Matches(props) {
     const [matches, setMatches] = useState([])
@@ -23,9 +24,9 @@ export default function Matches(props) {
 
     const getMatches = () => {
         axios
-        .get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/matches')
-        .then((res) => setMatches(res.data.matches))
-        .catch((err) => alert(err.response))
+            .get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/matches')
+            .then((res) => setMatches(res.data.matches))
+            .catch((err) => alert(err.response))
     }
 
     const onChangeSearch = (e) => {
@@ -34,7 +35,8 @@ export default function Matches(props) {
 
     return (
         <MainContainer>
-            <HeaderMatches page={props.home} />
+            <HeaderMatches page={props.home}
+                setPageTo={props.setPageTo} />
             <MatchesAndSearchBar
                 search={search}
                 setSearch={onChangeSearch}></MatchesAndSearchBar>
@@ -57,10 +59,11 @@ export default function Matches(props) {
                         photo={match.photo} />
                 })}
             </DisplayMatches>
-            <ResetMatches 
-            getMatches={getMatches}/>
+            <ResetMatches
+                getMatches={getMatches} />
             <DevelopedBy />
             <HomeBottomHr />
+            <ToastContainer />
         </MainContainer>
     )
 }

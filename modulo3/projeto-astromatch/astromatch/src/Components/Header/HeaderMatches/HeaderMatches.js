@@ -5,16 +5,11 @@ import ButtonGoBack from '../../Assets/ButtonGoBack.svg'
 export default function Header(props) {
     return (
         <ContainerHeader>
-            <StyledButtonBack onClick={props.page}src={ButtonGoBack} /> 
+            <StyledButtonBack onClick={() => props.setPageTo("home")} src={ButtonGoBack} />
             <StyledLogo>
                 Astro<SpanOrange>Match</SpanOrange>
             </StyledLogo>
             <span></span>
-            
-
-
-
-
         </ContainerHeader>
     )
 }

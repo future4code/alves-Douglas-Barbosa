@@ -2,6 +2,8 @@ import React from 'react'
 import { MainContainerReset, StyledText, ResetButtonImg } from './Styled'
 import resetButton from '../Assets/ResetButton.svg'
 import axios from 'axios'
+import {  toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ResetMatches(props) {
     
@@ -24,9 +26,10 @@ export default function ResetMatches(props) {
 
       })
       .catch((error) => {
-        alert(error)
+        toast(error.data)
       })
     }}
+
 
   return (
     <MainContainerReset>

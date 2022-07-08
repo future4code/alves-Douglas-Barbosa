@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import React from "react";
 import Home from "./Components/Pages/Home/Home";
 import Matches from "./Components/Pages/Matches/Matches";
 
@@ -9,25 +10,21 @@ function App() {
 
   const renderPage = () => {
     if (page === "home") {
-      return <Home 
-      setPageToMatches={setPageToMatches}
-      page={page}/>
+      return <Home
+        page={page}
+        setPageTo={setPageTo} />
     } else if (page === "matches") {
       return <Matches
-      home={setPageToHome} />
+        setPageTo={setPageTo} />
     }
   }
 
-  const setPageToMatches = () => {
-    setPage("matches")
+  const setPageTo = (choice) => {
+    setPage(choice)
   }
-
-  const setPageToHome = () => {
-    setPage("home")
-  }
-
-  //
   
+  //
+
   return (
     <>
       {renderPage()}

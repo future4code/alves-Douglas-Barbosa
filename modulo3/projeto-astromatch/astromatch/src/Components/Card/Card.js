@@ -1,13 +1,15 @@
 import React from "react";
-import { ContainerCard, ContainerShadowBottom, ContainerShadowTop, StyledDescrição, StyledNome } from './Styled';
+import { ContainerCard, ContainerShadowBottom, ContainerShadowTop, StyledDescription, StyledName } from './Styled';
 
 export default function Card(props) {
 
   return (
-    <ContainerCard style={{ backgroundImage: `url(${props.photo})`}}>
+    <ContainerCard style={{ backgroundImage: `url(${props.photo})` }}
+      likeOrDislike={props.likeOrDislike}
+      id={props.id}>
       <ContainerShadowTop />
-      <StyledNome>{props.name ? (props.name + `,`) : <></>} {props.age ? (props.age) : <></>}</StyledNome>
-      <StyledDescrição>{props.bio ? (props.bio) : <></>}</StyledDescrição>
+      <StyledName>{props.name ? (props.name + `,`) : <></>} {props.age ? (props.age) : <></>}</StyledName>
+      <StyledDescription>{props.bio ? (props.bio) : <></>}</StyledDescription>
       <ContainerShadowBottom />
     </ContainerCard>
   )

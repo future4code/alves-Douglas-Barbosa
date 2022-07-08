@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const BarContainer = styled.div`
 display: flex;
-position: absolute;
 width: 254px;
 height: 62px;
-margin-top: 693px;
+margin-top: 647px;
 margin-left: 60px;
 margin-right: 60px;
 justify-content: space-between;

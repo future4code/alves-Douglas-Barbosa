@@ -18,6 +18,28 @@ border-radius: 30px;
 background-repeat: no-repeat;
 background-size: cover, contain;
 background-position: center;
+:hover {
+  opacity: 1;
+	-webkit-animation: flash 2s;
+	animation: flash 1.2s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+  
 `
 
 export const StyledName = styled.p`
@@ -73,9 +95,11 @@ export const DisplayMatches = styled.div`
 position: absolute;
 display: flex;
 flex-direction: column;
-width:307px;
+width:330px;
 height:442px;
 margin-top: 207px;
 margin-left: 25px;
 gap: 10px;
+overflow-y: auto;
+overflow-x: hidden;
 `

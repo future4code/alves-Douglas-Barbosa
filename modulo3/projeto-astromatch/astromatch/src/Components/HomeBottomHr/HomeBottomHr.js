@@ -5,7 +5,7 @@ import { ContainerHr } from './Styled'
 export default function HomeBottomHr() {
   return (
     <ContainerHr>
-        <img src={BottomHrSvg}></img>
+        <img src={BottomHrSvg} alt='divider'></img>
     </ContainerHr>
   )
 }

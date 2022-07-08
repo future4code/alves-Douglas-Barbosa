@@ -17,6 +17,10 @@ transition-duration: 0.2s;
   transform: scale(1.009);
   transition-duration: 0.2s;
 }
+transition: all 0.5 ease-in-out;
+${(props) => props.likeOrDislike === "dislike" && " transform: translate(-15rem, 5rem) rotate(-15deg); opacity:0.2;"}
+${(props) => props.likeOrDislike === "normal" && ""}
+${(props) => props.likeOrDislike === "like" && ("transform: translate(15rem, 5rem) rotate(15deg); opacity:0.2;")}
 `
 
 export const ContainerShadowTop = styled.div`
@@ -26,7 +30,6 @@ height: 125px;
 left: 0px;
 top: 0px;
 border-radius: 24px;
-
 background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
 `
 
@@ -37,11 +40,10 @@ height: 190px;
 left: 0px;
 top: 399px;
 border-radius: 24px;
-
 background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 `
 
-export const StyledNome = styled.p`
+export const StyledName = styled.p`
 position: absolute;
 width: 233px;
 height: 42px;
@@ -56,19 +58,17 @@ z-index: 2;
 white-space: nowrap;
 `
 
-export const StyledDescrição = styled.p`
+export const StyledDescription = styled.p`
 position: absolute;
 width: 240px;
 height: 46px;
 left: 22px;
 top: 505px;
-
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 300;
 font-size: 15px;
 line-height: 22px;
-
 color: white;
 z-index: 2;
 `

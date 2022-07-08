@@ -1,6 +1,5 @@
 import React from 'react'
 import { MainContainer, SearchBar, StyledMatches } from './Styled'
-import Search from '../Assets/Search.svg'
 
 export default function MatchesAndSearchBar(props) {
   return (

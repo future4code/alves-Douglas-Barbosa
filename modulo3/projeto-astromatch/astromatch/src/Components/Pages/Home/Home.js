@@ -6,39 +6,94 @@ import Card from '../../Card/Card';
 import { MainContainer } from './Styled'
 import BottomBar from '../../BottomBar/BottomBar';
 import HomeBottomHr from '../../HomeBottomHr/HomeBottomHr';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 export default function Home(props) {
-    const [person, setPerson] = useState([])
+  const [person, setPerson] = useState([])
+  const [likeOrDislike, setLikeOrDislike] = useState("normal")
 
-    useEffect(() => {
-        axios
-            .get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/person')
-            .then((res) => setPerson(res.data.profile))
-            .catch((err) => alert(err.response))
-    }, []);
+  useEffect(() => {
+    axios
+      .get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/person')
+      .then((res) => setPerson(res.data.profile))
+      .catch((err) => alert(err.response))
+  }, []);
 
-    const getNewPerson = () => {
-        axios
-            .get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/person')
-            .then((res) => setPerson(res.data.profile))
-            .catch((err) => alert(err.response))
-    }
+  const getNewPerson = () => {
+    axios
+      .get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/person')
+      .then((res) => {
+        setPerson(res.data.profile)
+        setLikeAnimationNormal()
+      })
+      .catch((err) => toast.error(err.response), {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+  }
 
-    return (
-        <MainContainer>
-            <Header 
-            setPageToMatches={props.setPageToMatches}
-            page={props.page}/>
-            <Card
-                id={person.id}
-                name={person.name}
-                age={person.age}
-                bio={person.bio}
-                photo={person.photo} />
-            <BottomBar
-                id={person.id}
-                getNewPerson={getNewPerson} />
-            <HomeBottomHr />
-        </MainContainer>)
+  // Card Animation functions
+
+  const setLikeAnimation = () => {
+    setLikeOrDislike("like")
+
+  }
+
+  const setDislikeAnimation = () => {
+    setLikeOrDislike("dislike")
+  }
+
+  const setLikeAnimationNormal = () => {
+    setLikeOrDislike("normal")
+  }
+
+  //
+
+  const resetMatchesNoCheck = () => {
+    axios
+      .put(
+        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/douglashenrique/clear`,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then((res) => {
+        props.getMatches()
+
+      })
+      .catch((error) => {
+        toast(error.data)
+      })
+  }
+
+  return (
+    <MainContainer>
+      <Header
+        page={props.page}
+        setPageTo={props.setPageTo} />
+      <Card
+        id={person ? person.id : resetMatchesNoCheck()}
+        name={person ? person.name : resetMatchesNoCheck()}
+        age={person ? person.age : resetMatchesNoCheck()}
+        bio={person ? person.bio : resetMatchesNoCheck()}
+        photo={person ? person.photo : resetMatchesNoCheck()}
+        likeOrDislike={likeOrDislike} />
+      <BottomBar
+        id={person ? person.id : resetMatchesNoCheck()}
+        getNewPerson={getNewPerson}
+        likeOrDislike={likeOrDislike}
+        setLikeAnimation={setLikeAnimation}
+        setDislikeAnimation={setDislikeAnimation}
+        setLikeAnimationNormal={setLikeAnimationNormal} />
+      <HomeBottomHr />
+      <ToastContainer />
+    </MainContainer>)
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { ContainerHeader, StyledLogo, SpanOrange, StyledButton } from './Styled'
 import ButtonGoToMatches from '../Assets/ButtonGoToMatches.svg'
-import ButtonGoBack from '../Assets/ButtonGoBack.svg'
 
 export default function Header(props) {
     return (
@@ -10,11 +9,7 @@ export default function Header(props) {
             <StyledLogo>
                 Astro<SpanOrange>Match</SpanOrange>
             </StyledLogo>
-            <StyledButton onClick={props.setPageToMatches} src={ButtonGoToMatches} alt='go to matches button'></StyledButton>
-
-
-
-
+            <StyledButton onClick={() => props.setPageTo("matches")} src={ButtonGoToMatches} alt='go to matches button'></StyledButton>
         </ContainerHeader>
     )
 }
