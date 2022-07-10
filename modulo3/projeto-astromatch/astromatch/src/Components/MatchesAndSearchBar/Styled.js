@@ -10,6 +10,7 @@ margin-left: 25px;
 `
 
 export const StyledMatches = styled.h1`
+font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
 font-size: 40px;
