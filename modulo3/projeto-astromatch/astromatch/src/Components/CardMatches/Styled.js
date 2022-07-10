@@ -102,4 +102,27 @@ margin-left: 25px;
 gap: 10px;
 overflow-y: auto;
 overflow-x: hidden;
+
+
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+::-webkit-scrollbar-track {
+	background: white;
+	border-radius: 20px;
+	margin-block: 5px
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ff5e51;
+	border-radius: 20px;
+}
+
+@supports (scrollbar-color: #ff5e51 white ) {
+	scrollbar-color: #ff5e51 white;
+	scrollbar-width: thin;
+	border-radius: 20px;
+	
+}
 `
