@@ -24,7 +24,7 @@
 
 ### Link Surge 
 
-https://parallel-exchange.surge.sh
+https://fretful-mint.surge.sh
 
 ### Images
 
