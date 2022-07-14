@@ -24,7 +24,9 @@ margin-top: 15vh;
 white-space: no-wrap;
 `
 
-export const StyledH1 = styled.p`
+export const StyledH1 = styled.h1`
+display: flex;
+flex-direction: column;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
@@ -36,7 +38,15 @@ text-align: center;
 color: #FFFFFF;
 `
 
-export const SpanOrangeH1 = styled.span`
+export const SpanOrangeH1 = styled.h1`
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 4rem;
+line-height: 6rem;  
+display: flex;
+align-items: center;
+text-align: center;
 color: #E99555;
 `
 export const ButtonJoinUs = styled.button`

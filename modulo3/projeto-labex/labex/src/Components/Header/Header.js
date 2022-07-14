@@ -1,6 +1,6 @@
 import React from 'react'
 import { ContainerLogo, MainContainer, NavBar, SpanOrange, StyledLogo, StyledNavButton, StyledNavButtonLogin } from './Styled'
-import { goToLoginPage } from '../../routes/Coordinator'
+import { goToLoginPage, goToHomePage } from '../../routes/Coordinator'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -16,7 +16,7 @@ export default function Header() {
         </ContainerLogo>
 
         <NavBar>
-            <StyledNavButton>Home</StyledNavButton>
+            <StyledNavButton onClick={()=>goToHomePage(navigate)}>Home</StyledNavButton>
             <StyledNavButton>About</StyledNavButton>
             <StyledNavButtonLogin onClick={()=>goToLoginPage(navigate)}>Login</StyledNavButtonLogin>
         </NavBar>
