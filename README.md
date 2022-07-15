@@ -4,6 +4,8 @@ Olá, Bem vindo!
 
 [AstroMatch](https://github.com/Douggx/alves-Douglas-Barbosa/tree/master/modulo3/projeto-astromatch/astromatch)
 
+<hr>
+
 ├── [Modulo 1](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1)
 
 │   ├── [Aula: Git](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1/aula-git)
