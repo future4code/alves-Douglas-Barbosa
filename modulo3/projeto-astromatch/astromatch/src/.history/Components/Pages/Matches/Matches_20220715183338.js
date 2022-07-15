@@ -32,6 +32,7 @@ export default function Matches(props) {
     const onChangeSearch = (e) => {
         setSearch(e.target.value)
     }
+
     return (
         <MainContainer>
             <HeaderMatches page={props.home}
