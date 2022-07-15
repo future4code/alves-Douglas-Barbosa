@@ -1,8 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const StyledSelect = styled.select`
+height: 3em;
+width: 17em;
+`
 
 export default function CountrySelects(onChange) {
   return (
-    <select 
+    <StyledSelect
     name='country'
     id={"select-country"}
     onChange={onChange}>
@@ -257,6 +263,6 @@ export default function CountrySelects(onChange) {
 	<option value="Wallis e Futuna">Wallis e Futuna</option>
 	<option value="Zimbabwe">Zimbabwe</option>
 	<option value="Zâmbia">Zâmbia</option>
-</select>
+</StyledSelect>
   )
 }

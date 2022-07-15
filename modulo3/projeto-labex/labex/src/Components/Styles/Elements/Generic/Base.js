@@ -6,6 +6,6 @@ background-color: #163055;
 font-family: 'Poppins', sans-serif;
 display: flex;
 height: 100vh;
-overflow: hidden;
+/* overflow: hidden; */
 }
 ` 

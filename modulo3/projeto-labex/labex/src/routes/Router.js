@@ -7,6 +7,7 @@ import ListTripsPage from '../Components/Pages/ListTripsPage/ListTripsPage'
 import ApplicationFormPage from '../Components/Pages/ApplicationFormPage/ApplicationFormPage'
 import AdminHomePage from '../Components/Pages/AdminHomePage/AdminHomePage'
 import TripDetailsPage from '../Components/Pages/TripDetailsPage/TripDetailsPage'
+import CreateTripPage from '../Components/Pages/CreateTripPage/CreateTripPage'
 
 export default function Router() {
     return (
@@ -18,6 +19,7 @@ export default function Router() {
                 <Route path='applicationFormPage' element={ <ApplicationFormPage /> } />
                 <Route path='adminHomePage' element={ <AdminHomePage /> } />
                 <Route path="tripDetails/:id" element={<TripDetailsPage/>}/>
+                <Route path='createTripPage' element={ <CreateTripPage /> } />
                 <Route path='*' element={ ''} />
                 {/* /:id */}
             </Routes>

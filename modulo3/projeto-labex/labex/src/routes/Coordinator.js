@@ -19,6 +19,9 @@ export const goToAdminHomePage = (navigate) => {
 }
 
 export const goToTripDetailsPage = (navigate, id) => {
-    console.log('valor id coordinator:', id);
     navigate(`/tripdetails/${id}`);
   } 
+
+  export const goToCreateTripPage = (navigate) => {
+    navigate('/createTripPage')
+  }

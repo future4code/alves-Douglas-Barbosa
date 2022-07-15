@@ -8,7 +8,8 @@ flex-direction: column;
 `
 
 export const H1TripsList = styled.h1`
-font-size: 36px;
+font-size: 42px;
+font-weight: 600;
 color: #F88833;
 margin: 0 auto;
 margin-top: 3vh;

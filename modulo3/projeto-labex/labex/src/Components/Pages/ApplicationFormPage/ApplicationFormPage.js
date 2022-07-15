@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ContainerButton, ContainerInputs, ContainerLogin, MainContainer, PasswordP, StyledLogin } from './Styled'
+import { ContainerButton, ContainerInputs, ContainerLogin, MainContainer, PasswordP, StyledLogin, StyledSelect } from './Styled'
 import HeaderLogin from '../LoginPage/HeaderLogin/HeaderLogin';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -59,16 +59,17 @@ export default function LoginPage() {
             <ContainerInputs>
               <PasswordP>Escolha a viagem</PasswordP>
 
-              <select
+              <StyledSelect
                 name='tripChoice'
                 id={"select-trip"}
-                onChange={onChangeTripChoice} >
+                onChange={onChangeTripChoice}
+                required >
                 <option
                   value={""}>
                   Nenhum
                 </option>
                 {tripOptions}
-              </select>
+              </StyledSelect>
 
               <PasswordP>Nome</PasswordP>
               <TextField
@@ -76,7 +77,8 @@ export default function LoginPage() {
                 id="outlined-basic"
                 variant="outlined"
                 value={form.name} 
-                onChange={onChange}/>
+                onChange={onChange}
+                required/>
               <PasswordP>Idade</PasswordP>
               <TextField
                 name='age'
@@ -84,7 +86,8 @@ export default function LoginPage() {
                 variant="outlined"
                 type='number'
                 value={form.age}
-                onChange={onChange} />
+                onChange={onChange}
+                required />
               <PasswordP>Texto de Candidatura</PasswordP>
               <TextField
                 name='applicationText'
@@ -93,6 +96,7 @@ export default function LoginPage() {
                 maxRows={4}
                 value={form.applicationText}
                 onChange={onChange}
+                required
               />
               <PasswordP>Profissão</PasswordP>
               <TextField
@@ -100,7 +104,8 @@ export default function LoginPage() {
                 id="outlined-basic"
                 variant="outlined"
                 value={form.profession} 
-                onChange={onChange}/>
+                onChange={onChange}
+                required/>
               <PasswordP>Pais</PasswordP>
               {CountrySelects(onChange)}
               <ContainerButton>

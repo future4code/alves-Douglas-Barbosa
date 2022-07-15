@@ -38,7 +38,7 @@ text-align: center;
 color: #FFFFFF;
 `
 
-export const SpanOrangeH1 = styled.h1`
+export const SpanOrangeH1 = styled.span`
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
