@@ -1,0 +1,14 @@
+.match-toast{
+    font-family: 'Poppins';
+    text-align: center;
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.superlike-toast{
+    font-family: 'Poppins';
+    text-align: center;
+    color: #6690a1;
+    background-color: aliceblue;
+}
