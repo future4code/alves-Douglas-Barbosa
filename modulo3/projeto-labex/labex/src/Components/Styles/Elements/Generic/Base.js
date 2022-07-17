@@ -7,5 +7,6 @@ font-family: 'Poppins', sans-serif;
 display: flex;
 height: 100vh;
 /* overflow: hidden; */
+overflow-x: hidden;
 }
 ` 

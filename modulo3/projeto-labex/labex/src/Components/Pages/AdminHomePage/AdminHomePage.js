@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { ProtectedPage } from '../../../hooks/ProtectedPage'
 import HeaderLogin from '../LoginPage/HeaderLogin/HeaderLogin'
-import { DivContainerButtons, MainContainer, StyledH2 } from './styled'
+import { ButtonStyled, DivContainerButtons, MainContainer, StyledH2 } from './styled'
 import axios from 'axios'
 import CardAdminTrips from '../../CardAdminTrips/CardAdminTrips'
 import { useNavigate } from 'react-router-dom'
-import { goToCreateTripPage } from '../../../routes/Coordinator'
+import { goToCreateTripPage, goToHomePage, goToLoginPage } from '../../../routes/Coordinator'
 
 export default function AdminHomePage() {
     const [trips, setTrips] = useState()
@@ -30,16 +30,21 @@ export default function AdminHomePage() {
       id={trip.id} 
       getTrip={getTrip}/>
     })
+
+    const clearToken = (navigate) => {
+      localStorage.clear('token')
+      goToLoginPage(navigate)
+  }
   return (
     <>
     <HeaderLogin />
     <MainContainer>
-        <StyledH2>Admin HomePage</StyledH2>
+        <StyledH2>Admin Dashboard</StyledH2>
         <br />
         <DivContainerButtons>
-        <button>Back</button>
-        <button onClick={()=>goToCreateTripPage(navigate)}>Create Trips</button>
-        <button>Logout</button>
+        <ButtonStyled onClick={()=>goToHomePage(navigate)}>Back</ButtonStyled>
+        <ButtonStyled onClick={()=>goToCreateTripPage(navigate)}>Create Trips</ButtonStyled>
+        <ButtonStyled onClick={()=>clearToken(navigate)}>Logout</ButtonStyled>
         </DivContainerButtons>
         {CardsAdmin}
         </MainContainer>

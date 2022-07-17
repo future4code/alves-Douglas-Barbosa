@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import CardTrips from '../../CardTrips/CardTrips';
 import Header from '../../Header/Header';
-import { DisplayTrips, H1TripsList, MainContainer } from './Styled';
+import { ButtonStyled, DisplayTrips, H1TripsList, MainContainer } from './Styled';
 import { goToListApplication } from '../../../routes/Coordinator';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 
 export default function ListTripsPage() {
@@ -29,8 +30,8 @@ export default function ListTripsPage() {
     <MainContainer>
         <Header />
         <DisplayTrips>
-        <H1TripsList>Lista de Viagens</H1TripsList>
-        <button onClick={()=>goToListApplication(navigate)}>Sign Up</button>
+        <H1TripsList>Travel's List</H1TripsList>
+        <ButtonStyled onClick={()=>goToListApplication(navigate)}>Sign Up</ButtonStyled>
         {trips?.map((trip) => {
             return <CardTrips 
             key={trip.id}

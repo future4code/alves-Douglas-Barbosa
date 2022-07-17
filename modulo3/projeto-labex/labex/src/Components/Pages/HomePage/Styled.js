@@ -36,6 +36,17 @@ display: flex;
 align-items: center;
 text-align: center;
 color: #FFFFFF;
+@media screen and (max-width: 1153px) {
+    font-weight: 500;
+    line-height: 4rem;
+}
+@media screen and (max-width: 720px) {
+    font-size: 3rem;
+}
+@media screen and (max-width: 375px) {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+}
 `
 
 export const SpanOrangeH1 = styled.span`
@@ -48,6 +59,17 @@ display: flex;
 align-items: center;
 text-align: center;
 color: #E99555;
+@media screen and (max-width: 1153px) {
+    font-weight: 600;
+    line-height: 4rem;
+}
+@media screen and (max-width: 720px) {
+    font-size: 3rem;
+}
+@media screen and (max-width: 375px) {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+}
 `
 export const ButtonJoinUs = styled.button`
 font-family: 'Poppins';
@@ -64,4 +86,20 @@ border: 2px solid rgba(255, 255, 255, 0.44);
 border-radius: 10px;
 padding: 5px 32px;
 cursor: pointer;
+:hover {
+    background-color: #324e65;
+}
+@media screen and (max-width: 1153px) {
+    margin-top: 3vh;
+}
+@media screen and (max-width: 627px) {
+    font-size: 2.1rem;
+    padding: 5px 18px;
+}
+@media screen and (max-width: 375px) {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    margin-top: 0px;
+    padding: 2.5px 8px;
+}
 `

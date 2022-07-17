@@ -9,6 +9,12 @@ padding: 15px;
 gap: 3px;
 margin-bottom: 10px;
 border-radius: 5px;
+:hover {
+    background-color: #f1f1e6;
+}
+@media screen and (max-width: 375px) {
+    width: 50vh;
+}
 `
 
 export const ContainerButtons = styled.div`

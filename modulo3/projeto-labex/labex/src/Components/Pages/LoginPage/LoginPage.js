@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { ContainerButton, ContainerInputs, ContainerLogin, MainContainer, PasswordP, StyledLogin } from './Styled'
 import HeaderLogin from './HeaderLogin/HeaderLogin'
 import TextField from '@mui/material/TextField';
@@ -28,11 +28,10 @@ export default function LoginPage() {
     axios
       .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/douglashenrique/login', form)
       .then((res) => {
-        console.log(res.data.token)
         localStorage.setItem('token', res.data.token)
         goToAdminHomePage(navigate)
       })
-      .catch((err) => console.log(err.response))
+      .catch((err) => alert(err.response))
   }
 
   return (
@@ -44,11 +43,11 @@ export default function LoginPage() {
             <StyledLogin>Login</StyledLogin>
             <ContainerInputs>
               <PasswordP>Email</PasswordP>
-              <TextField name='email' id="outlined-basic" variant="outlined" required value={form.email} onChange={onChange} />
+              <TextField name='email' id="outlined-basic" variant="outlined" required value={form.email} onChange={onChange} placeholder='Email'/>
               <PasswordP>Password</PasswordP>
-              <TextField name='password' id="outlined-basic" variant="outlined" required value={form.password} onChange={onChange} />
+              <TextField name='password' id="outlined-basic" variant="outlined" required value={form.password} onChange={onChange} placeholder='Password' />
               <ContainerButton>
-                <Button onClick={loginHandler} variant="contained" margin='normal'>Login</Button>
+                <Button type='submit' variant="contained" margin='normal'>Login</Button>
 
               </ContainerButton>
             </ContainerInputs>

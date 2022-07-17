@@ -21,6 +21,9 @@ display: flex;
 flex-direction: column;
 text-align: center;
 align-items: center;
+@media screen and (max-width: 375px) {
+    width: 54vh;
+}
 
 `
 

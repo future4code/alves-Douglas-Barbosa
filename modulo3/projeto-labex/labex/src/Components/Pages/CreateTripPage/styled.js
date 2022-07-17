@@ -22,6 +22,10 @@ flex-direction: column;
 text-align: center;
 align-items: center;
 padding: 20px;
+margin-top: 5vh;
+@media screen and (max-width: 375px) {
+    width: 48vh;
+}
 
 
 `

@@ -12,7 +12,7 @@ border-bottom: 1px solid (0, 0, 0, 0.1);
 `
 
 export const ContainerLogo = styled.div`
-width: 10vw;
+/* width: 10vw; */
 height: 10vh;
 /* margin-left: 3vw; */
 `
@@ -26,6 +26,9 @@ line-height: 96px;
 text-align: center;
 color: #FFFFFF;
 cursor: pointer;
+@media screen and (max-width: 375px) {
+    font-size: 2.5rem;
+}
 `
 
 export const SpanOrange = styled.span`

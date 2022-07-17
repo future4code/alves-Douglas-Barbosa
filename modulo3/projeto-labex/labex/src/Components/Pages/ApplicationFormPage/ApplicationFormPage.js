@@ -43,27 +43,28 @@ export default function LoginPage() {
     axios
       .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/douglashenrique/trips/${id}/apply`, form)
       .then((res) => {
-        console.log(res.data)
+        alert('Application sent successfully')
+        
       })
-      .catch((err) => console.log(err.response))
+      .catch((err) => alert(err))
   }
 
-  console.log(form)
   return (
     <>
       <HeaderLogin />
       <MainContainer>
         <ContainerLogin>
           <form onSubmit={submitTripApplication}>
-            <StyledLogin>Inscreva-se para uma viagem </StyledLogin>
+            <StyledLogin>Signup to a out of space trip! </StyledLogin>
             <ContainerInputs>
-              <PasswordP>Escolha a viagem</PasswordP>
+              <PasswordP>Choose your trip</PasswordP>
 
               <StyledSelect
                 name='tripChoice'
                 id={"select-trip"}
                 onChange={onChangeTripChoice}
-                required >
+                required
+                >
                 <option
                   value={""}>
                   Nenhum
@@ -71,15 +72,16 @@ export default function LoginPage() {
                 {tripOptions}
               </StyledSelect>
 
-              <PasswordP>Nome</PasswordP>
+              <PasswordP>Name</PasswordP>
               <TextField
                 name='name'
                 id="outlined-basic"
                 variant="outlined"
                 value={form.name} 
                 onChange={onChange}
-                required/>
-              <PasswordP>Idade</PasswordP>
+                required
+                placeholder='Name'/>
+              <PasswordP>Age</PasswordP>
               <TextField
                 name='age'
                 id="outlined-basic"
@@ -87,8 +89,9 @@ export default function LoginPage() {
                 type='number'
                 value={form.age}
                 onChange={onChange}
-                required />
-              <PasswordP>Texto de Candidatura</PasswordP>
+                required
+                placeholder='Age'/>
+              <PasswordP>Application Text</PasswordP>
               <TextField
                 name='applicationText'
                 id="outlined-multiline-flexible"
@@ -97,20 +100,22 @@ export default function LoginPage() {
                 value={form.applicationText}
                 onChange={onChange}
                 required
+                placeholder='Application Text'
               />
-              <PasswordP>Profissão</PasswordP>
+              <PasswordP>Profession</PasswordP>
               <TextField
                 name='profession'
                 id="outlined-basic"
                 variant="outlined"
                 value={form.profession} 
                 onChange={onChange}
-                required/>
-              <PasswordP>Pais</PasswordP>
+                required
+                placeholder='Profession'/>
+              <PasswordP>country</PasswordP>
               {CountrySelects(onChange)}
               <ContainerButton>
-                <Button variant="contained" margin='normal' onClick={()=> goToHomePage(navigate)}>Voltar</Button>
-                <Button variant="contained" margin='normal' onClick={submitTripApplication}>Login</Button>
+                <Button variant="contained" margin='normal' onClick={()=> goToHomePage(navigate)}>Back</Button>
+                <Button type='submit' variant="contained" margin='normal'>Sign Up</Button>
               </ContainerButton>
             </ContainerInputs>
           </form>

@@ -8,10 +8,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 overflow: hidden ;
+margin-top: 2vh;
 `
 
 export const ContainerLogin = styled.div`
-min-height: 75vh;
+min-height: 65vh;
 min-width: 32vw;
 background-color: white;
 box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -22,7 +23,10 @@ flex-direction: column;
 text-align: center;
 align-items: center;
 padding: 20px;
-
+margin-top: 15vh;
+@media screen and (max-width: 375px) {
+    width: 50vh;
+}
 
 `
 
@@ -31,7 +35,7 @@ font-family: 'Poppins', 'Roboto';
 font-size: 2rem;
 font-weight: 600;
 margin-top: 5vh;
-margin-bottom: 5vh;
+margin-bottom: 2vh;
 -webkit-text-stroke-width: 1px;
 -webkit-text-stroke-color: black;
 `

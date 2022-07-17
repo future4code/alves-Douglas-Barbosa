@@ -15,6 +15,9 @@ gap: 3px;
 border-radius: 5px;
 margin: 0 auto;
 margin-top: 20px;
+:hover {
+    background-color: #f1f1e6;
+}
 `
 
 export const ContainerButtons = styled.div`
@@ -60,9 +63,15 @@ padding: 5px;
 gap: 0px;
 border-radius: 5px;
 margin: 0 auto;
+:hover {
+    background-color: #f1f1e6;
+}
 `
 
 export const ContainerVazio = styled.div`
 display: flex;
 height: 5vh;
+:hover {
+    background-color: #f1f1e6;
+}
 `

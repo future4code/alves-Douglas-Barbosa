@@ -11,6 +11,9 @@ margin-bottom: 10px;
 border-radius: 5px;
 margin: 0 auto;
 white-space: pre-wrap;
+:hover {
+    background-color: #f1f1e6;
+}
 `
 
 export const ContainerButtons = styled.div`
@@ -32,5 +35,10 @@ font-size: 22px;
 export const Buttons = styled.img`
 cursor: pointer;
 height: 35px;
-color: red;
+transform: scale(1.0);
+transition-duration: 0.5s;
+:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
 `

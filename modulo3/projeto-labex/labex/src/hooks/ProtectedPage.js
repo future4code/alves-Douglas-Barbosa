@@ -13,5 +13,5 @@ export const ProtectedPage = () => {
         } else if (token === true) {
             goToAdminHomePage(navigate)
         }
-    }, [])
+    }, [navigate])
 }

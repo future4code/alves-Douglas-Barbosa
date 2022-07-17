@@ -1,36 +1,40 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { ContainerButton, ContainerInputs, ContainerLogin, MainContainer, PasswordP, StyledLogin, StyledSelect } from './styled'
 import HeaderLogin from '../LoginPage/HeaderLogin/HeaderLogin';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import useForm from '../../../hooks/useForm';
-import CountrySelects from '../../CountrySelects/CountrySelects';
-import { goToAdminHomePage, goToHomePage } from '../../../routes/Coordinator';
+import { goToAdminHomePage } from '../../../routes/Coordinator';
 import { useNavigate } from 'react-router-dom';
+import { ProtectedPage } from '../../../hooks/ProtectedPage';
 
 export default function CreateTripPage() {
     const { form, onChange, cleanFields } = useForm({ name: "", planet: "", date: "", description: "", durationInDays: '' })
     const navigate = useNavigate()
+    ProtectedPage()
 
-    const submitNewTrip = () => {
+    const submitNewTrip = (event) => {
+        event.preventDefault()
         const token = localStorage.getItem('token');
         axios
-        .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/douglashenrique/trips`, form,
-        {
-          headers: 
-          {
-            auth: token
-          }
-        })
-        .then( res => {
-          console.log(res);
-        })
-        .catch( erro => {
-          console.log(erro);
-        });
-      }
-      console.log(form)
+            .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/douglashenrique/trips`, form,
+                {
+                    headers:
+                    {
+                        auth: token
+                    }
+                })
+            .then(res => {
+                alert('Trip created successfully!')
+                cleanFields()
+            })
+            .catch(erro => {
+                alert(erro);
+            });
+    }
+
+
     return (
         <>
             <HeaderLogin />
@@ -46,15 +50,18 @@ export default function CreateTripPage() {
                                 variant="outlined"
                                 value={form.name}
                                 onChange={onChange}
-                                required />
+                                required={true}
+                                placeholder='Name'
+                                 />
                             <PasswordP>Planet</PasswordP>
                             <StyledSelect
                                 name='planet'
                                 id={"select-trip"}
                                 onChange={onChange}
-                                required >
+                                required
+                                 >
                                 <option value={""}>
-                                    Nenhum
+                                    None
                                 </option>
                                 <option value="Mercury">Mercury</option>
                                 <option value="Venus">Venus</option>
@@ -68,35 +75,41 @@ export default function CreateTripPage() {
 
                             <PasswordP>Date</PasswordP>
                             <TextField
+                            required={true}
                                 name='date'
                                 id="outlined-basic"
                                 variant="outlined"
                                 type='date'
                                 value={form.date}
                                 onChange={onChange}
-                                required />
+                                placeholder='Expedition Date'
+                                 />
                             <PasswordP>Description</PasswordP>
                             <TextField
+                            required={true}
                                 name='description'
                                 id="outlined-multiline-flexible"
                                 multiline
                                 maxRows={4}
                                 value={form.description}
                                 onChange={onChange}
-                                required
+                                placeholder='Description'
+                                
                             />
                             <PasswordP>Duration in Days</PasswordP>
                             <TextField
+                            required={true}
                                 name='durationInDays'
                                 id="outlined-basic"
                                 variant="outlined"
                                 value={form.durationInDays}
-                                onChange={onChange} 
+                                onChange={onChange}
                                 type='number'
-                                required/>
+                                placeholder='10'
+                                 />
                             <ContainerButton>
-                                <Button variant="contained" margin='normal' onClick={()=> goToAdminHomePage(navigate)}>Voltar</Button>
-                                <Button variant="contained" margin='normal' onClick={submitNewTrip}>Login</Button>
+                                <Button variant="contained" margin='normal' onClick={() => goToAdminHomePage(navigate)}>Back</Button>
+                                <Button type='submit' variant="contained" margin='normal' >Create Trip</Button>
                             </ContainerButton>
                         </ContainerInputs>
                     </form>

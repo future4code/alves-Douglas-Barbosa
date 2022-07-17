@@ -1,7 +1,7 @@
 import React from 'react'
 import { ContainerCard, StyledInfos, StyledTitles, Buttons } from './Styled'
 import Trash from '../Assets/trash.svg'
-import Dots from '../Assets/three-dots.svg'
+import Dots from '../Assets/three-dots2.svg'
 import { ContainerButtons } from '../CardTrips/Styled'
 import { goToTripDetailsPage } from '../../routes/Coordinator'
 import { useNavigate } from 'react-router-dom'
