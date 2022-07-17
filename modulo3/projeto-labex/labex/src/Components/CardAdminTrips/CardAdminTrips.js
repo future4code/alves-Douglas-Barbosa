@@ -12,6 +12,10 @@ export default function CardAdminTrips(props) {
 
     const deleteTrip = (id) => {
       const token = localStorage.getItem('token');
+      const confirmBox = window.confirm(
+        "Do you really want to delete this trip?"
+    )
+    if (confirmBox === true) {
       axios
       .delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/douglashenrique/trips/${id}`,
       {
@@ -25,6 +29,7 @@ export default function CardAdminTrips(props) {
         props.getTrip()
       }) 
       .catch( erro => alert('Não foi possível deletar a trip clicada'))
+    }
     }
   return (
     <ContainerCard>
