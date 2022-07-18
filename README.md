@@ -2,9 +2,9 @@ Olá, Bem vindo!
 
 ### Principais Projetos:
 
-[AstroMatch](https://github.com/Douggx/alves-Douglas-Barbosa/tree/master/modulo3/projeto-astromatch/astromatch)
+- [AstroMatch](https://github.com/Douggx/alves-Douglas-Barbosa/tree/master/modulo3/projeto-astromatch/astromatch)
 
-[E-Commerce](https://github.com/future4code/Alves-labe-commerce17)
+- [E-Commerce](https://github.com/future4code/Alves-labe-commerce17)
 
 <hr>
 
