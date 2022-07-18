@@ -25,6 +25,10 @@ With this project I believe I have improved in the handling of projects with lar
 
 https://nifty-detail.surge.sh
 
+### Login:
+astrodev@gmail.com
+senha: 123456
+
 ### Images
 
 ![image](https://user-images.githubusercontent.com/103120880/179421889-be32cd1c-9dbc-43d9-92ef-06cc4e65edc7.png)
