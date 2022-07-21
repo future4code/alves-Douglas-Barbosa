@@ -1,4 +1,12 @@
-Olá!
+Olá, Bem vindo!
+
+### Principais Projetos:
+
+- [AstroMatch](https://github.com/Douggx/alves-Douglas-Barbosa/tree/master/modulo3/projeto-astromatch/astromatch)
+
+- [E-Commerce](https://github.com/future4code/Alves-labe-commerce17)
+
+<hr>
 
 ├── [Modulo 1](https://github.com/future4code/alves-Douglas-Barbosa/tree/master/modulo1)
 
