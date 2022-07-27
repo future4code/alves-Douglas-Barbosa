@@ -74,7 +74,6 @@ line-height: 1.563rem;
 text-align: center;
 color: #FFFFFF;
 margin-top: 3.5rem;
-margin-left: 1.8125rem;
 cursor: pointer;
 `
 

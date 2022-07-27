@@ -1,0 +1,43 @@
+import React from 'react'
+import { LoginForm, StyledButton, StyledInput, } from './Styled'
+import useForm from '../../Hooks/useForm'
+import { login } from '../../Services/Login'
+import { goToFeed } from '../../Routes/Coordinator'
+import { useNavigate } from 'react-router-dom'
+import { useUnprotectedPage } from '../../Hooks/useUnprotectedPage'
+
+export default function LoginForms() {
+  const { form, onChange, cleanFields } = useForm({ email: "", password: "" })
+  const navigate = useNavigate()
+
+  useUnprotectedPage()
+
+  const onSubmitForm = (event) => {
+    event.preventDefault()
+    login(form, cleanFields, navigate)
+    
+  }
+
+  return (
+      <LoginForm onSubmit={onSubmitForm}>
+        <StyledInput
+          type='email'
+          placeholder='Email'
+          name='email'
+          value={form.email}
+          onChange={onChange}
+          required
+        />
+        <StyledInput
+          type='password'
+          placeholder='Senha'
+          name='password'
+          value={form.password}
+          onChange={onChange}
+          required
+        />
+
+        <StyledButton type='submit'>Continuar</StyledButton>
+      </LoginForm>
+  )
+}
