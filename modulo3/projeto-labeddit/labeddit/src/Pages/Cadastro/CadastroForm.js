@@ -1,8 +1,6 @@
-import axios from 'axios'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Endbar from '../../Components/EndBar/Endbar'
-import { baseURL } from '../../Constants/baseUrl'
 import useForm from '../../Hooks/useForm'
 import { goToLogin } from '../../Routes/Coordinator'
 import { Signup } from '../../Services/Signup'

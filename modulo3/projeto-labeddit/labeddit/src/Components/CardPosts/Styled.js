@@ -7,11 +7,12 @@ align-items: flex-start;
 padding: 9px 10px;
 gap: 18px;
 width: 21.125rem;
-height: 9.875rem;
+max-height: 11.875rem;
 background: #FBFBFB;
 border: 1px solid #E0E0E0;
 border-radius: 12px;
 margin-left: 2rem;
+flex-shrink: 1;
 `
 
 export const EnviadoPor = styled.p`
@@ -24,17 +25,28 @@ font-size: 0.75rem;
 line-height: 1rem;
 text-align: center;
 color: #6F6F6F;
+white-space: nowrap;
 `
 
 export const TituloPost = styled.p`
 width: 20.9375rem;
-height: 4.3125rem;
 font-family: 'IBM Plex Sans';
 font-style: normal;
 font-weight: 400;
 font-size: 1.125rem;
 line-height: 1.4375rem;
 color: #000000;
+`
+
+export const BodyPost = styled.p`
+width: 20.9375rem;
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 300;
+font-size: 1rem;
+line-height: 1.4375rem;
+color: #000000;
+margin-bottom: 0.125rem;
 `
 
 export const DivDownBars = styled.div`
@@ -91,5 +103,13 @@ line-height: 0.75rem;
 text-align: center;
 
 color: #6F6F6F;
+`
+
+export const VoteUncolored = styled.img`
+cursor: pointer;
+`
+
+export const StyledCommentImage = styled.img`
+cursor: pointer;
 `
 

@@ -19,6 +19,7 @@ display: flex;
 flex-direction: column;
 height: 31.5625rem;
 overflow-y: auto;
-gap: 0.625rem;
+gap: 1.25rem;
 margin-bottom: 3.0625rem;
+margin-top: 5.625rem;
 `

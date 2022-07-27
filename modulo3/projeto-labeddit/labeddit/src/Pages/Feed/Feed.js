@@ -3,45 +3,64 @@ import CreatePost from '../../Components/CreatePost/CreatePost'
 import Header from '../../Components/Header/Header'
 import StatusBar from '../../Components/StatusBar/StatusBar'
 import { DisplayCards, MainContainer, StyledDivider } from './Styled'
-import Divider from '../../Assets/DividerL.svg'
 import CardPosts from '../../Components/CardPosts/CardPosts'
-import {useProtectedPage} from '../../Hooks/useProtectedPage'
+import { useProtectedPage } from '../../Hooks/useProtectedPage'
 import axios from 'axios'
-import {baseURL} from '../../Constants/baseUrl'
+import { baseURL } from '../../Constants/baseUrl'
 import { useEffect } from 'react'
 import Endbar from '../../Components/EndBar/Endbar'
+import { useContext } from 'react'
+import GlobalStateContext from '../../Global/GlobalStateContext'
 
 export default function Feed() {
   const [posts, setPosts] = useState([])
-  console.log(posts)
+  const { states, constants } = useContext(GlobalStateContext)
+
+  useProtectedPage()
+
+  //
 
   useEffect(() => {
-    getPosts()
-   
+    constants.getPosts()
+
+
+  }, [])
+
+  //
+
+  const mapPosts = states.posts.map((post) => {
+    return <CardPosts
+      key={post.id}
+      body={post.body}
+      commentCount={post.commentCount}
+      id={post.id}
+      title={post.title}
+      user={post.username}
+      votes={post.voteSum}
+      post={post} />
       
-    } , [])
+  })
 
   const getPosts = () => {
     const token = localStorage.getItem('token')
-    console.log(token)
     axios
-    .get(`${baseURL}/posts?page=1&size=10`, 
-    {
-      headers:
-      {
-        Authorization: token
-      }
-  })
-  .then((res) => {
-    console.log(res)
-    setPosts(res.data)
-  })
-  .catch((err) => {
-    console.log(err)
-  })
-}
+      .get(`${baseURL}/posts?page=1&size=10`,
+        {
+          headers:
+          {
+            Authorization: token
+          }
+        })
+      .then((res) => {
+        console.log(res)
+        setPosts(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
-  useProtectedPage()
+
 
   return (
     <MainContainer>
@@ -49,18 +68,22 @@ export default function Feed() {
       <Header />
 
       <CreatePost />
-      <StyledDivider src={Divider} />
+      
 
       <DisplayCards>
-      {posts.map((post) => {
-        return <CardPosts 
-        body={post.body}
-        commentCount={post.commentCount}
-        id={post.id}
-        title={post.title}
-        user={post.username}
-        votes={post.voteSum}/>
-      })}
+        {states.posts.map((post) => {
+          return <CardPosts
+            key={post.id}
+            body={post.body}
+            commentCount={post.commentCount}
+            id={post.id}
+            title={post.title}
+            user={post.username}
+            votes={post.voteSum}
+            post={post}
+            getPost={getPosts} />
+            
+        })}
       </DisplayCards>
 
       <Endbar />
