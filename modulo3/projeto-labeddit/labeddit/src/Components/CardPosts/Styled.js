@@ -7,12 +7,13 @@ align-items: flex-start;
 padding: 9px 10px;
 gap: 18px;
 width: 21.125rem;
-max-height: 11.875rem;
-background: #FBFBFB;
-border: 1px solid #E0E0E0;
+max-height: 15.875rem;
+background: ${props => props.darkMode === false ? "#FBFBFB" : "#c4c3c3"};
+border: 1px solid ${props => props.darkMode === false ? "#E0E0E0" : "#131313"};
 border-radius: 12px;
 margin-left: 2rem;
 flex-shrink: 1;
+overflow-wrap: break-word;
 `
 
 export const EnviadoPor = styled.p`
@@ -64,7 +65,7 @@ justify-content: space-between;
 align-items: center;
 padding: 0.2917rem;
 gap: 0.995rem;
-border: 0.0498rem solid #ECECEC;
+border: 0.0498rem solid ${props => props.darkMode === false ? "#ECECEC" : "#827D7D;"};
 border-radius: 1.75rem;
 `
 
@@ -90,7 +91,7 @@ align-items: center;
 padding: 0.2917rem;
 gap: 0.5rem;
 width: 4.0831rem;
-border: 0.0496rem solid #ECECEC;
+border: 0.0496rem solid ${props => props.darkMode === false ? "#ECECEC" : "#827D7D;"};
 border-radius: 1.75rem;
 `
 

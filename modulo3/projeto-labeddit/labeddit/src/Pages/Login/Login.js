@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import StatusBar from '../../Components/StatusBar/StatusBar'
 import { MainContainer, StyledCreateAccount, StyledDivider, StyledLabeddit, StyledLogo, StyledSubtitle } from './Styled'
 import Logo from '../../Assets/Logo.svg'
@@ -9,9 +9,11 @@ import { useNavigate } from 'react-router-dom'
 import LoginForms from './LoginForms'
 import { useUnprotectedPage } from '../../Hooks/useUnprotectedPage'
 import { useEffect } from 'react'
+import GlobalStateContext from '../../Global/GlobalStateContext'
 
 export default function Login() {
   const navigate = useNavigate()
+  const { states, constants } = useContext(GlobalStateContext)
 
   useUnprotectedPage()
 
@@ -28,17 +30,17 @@ export default function Login() {
     } , [])
 
   return (
-    <MainContainer>
+    <MainContainer darkMode={states.darkMode}>
       <StatusBar />
 
       <StyledLogo src={Logo} />
-      <StyledLabeddit>Labeddit</StyledLabeddit>
-      <StyledSubtitle>O projeto de rede social da Labenu</StyledSubtitle>
+      <StyledLabeddit darkMode={states.darkMode}>Labeddit</StyledLabeddit>
+      <StyledSubtitle darkMode={states.darkMode}>O projeto de rede social da Labenu</StyledSubtitle>
 
-      <LoginForms />
+      <LoginForms darkMode={states.darkMode}/>
 
       <StyledDivider src={Divider} />
-      <StyledCreateAccount onClick={() => goToCadastro(navigate)}>Criar uma conta!</StyledCreateAccount>
+      <StyledCreateAccount darkMode={states.darkMode} onClick={() => goToCadastro(navigate)}>Criar uma conta!</StyledCreateAccount>
 
       <Endbar />
     </MainContainer>

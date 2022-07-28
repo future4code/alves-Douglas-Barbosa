@@ -6,8 +6,8 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 width: 26.75rem;
-height: 3.125rem;
-background-color: #F3C7A6;
+min-height: 3.125rem;
+background-color: ${props => props.darkMode === false ? "#F3C7A6" : "#C5C2C2"};
 `
 
 export const MiniLogo = styled.img`
@@ -31,6 +31,7 @@ color: #4088CB;
 
 export const StyledGoBack = styled.img`
 margin-left: 2.125rem;
+cursor: pointer;
 `
 
 export const StyledSpan = styled.span`

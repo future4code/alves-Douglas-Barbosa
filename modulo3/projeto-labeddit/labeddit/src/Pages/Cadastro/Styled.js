@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
 width: 26.75rem;
 height: 57.875rem;
-background-color: white;
+background-color: ${props => props.darkMode === false ? "white" : "#19191b"};
 display: flex;
 flex-direction: column;
 `
@@ -16,7 +16,7 @@ font-style: normal;
 font-weight: 700;
 font-size: 2.0625rem;
 line-height: 2.6875rem;
-color: #373737;
+color: ${props => props.darkMode === false ? "#373737" : "#f3f3f3"};
 margin-bottom: 12.125rem;
 `
 
@@ -33,6 +33,7 @@ height: 3.438rem;
 padding: 0.100rem 0.700rem;
 border: 1.7px solid #d5d8de;
 border-radius: 0.313rem;
+background: ${props => props.darkMode === false ? "white" : "#c4c3c3"};
 ::placeholder {
 font-size: 1rem;
 font-family: 'Noto Sans';
@@ -52,7 +53,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 0.875rem;
 line-height: 1.1875rem;
-color: #000000;
+color: ${props => props.darkMode === false ? "#000000" : "#c4c3c3"};
 width: 22.5637rem;
 height: 2.375rem;
 margin-bottom: 0.4375rem;
@@ -98,13 +99,13 @@ font-size: 0.875rem;
 line-height: 1.1875rem;
 width: 21.0763rem;
 height: 2.375rem;
-color: #000000;
+color: ${props => props.darkMode === false ? "#000000" : "#c4c3c3"};
 `
 
 export const StyledButton = styled.button`
 width: 22.813rem;
 height: 3.188rem;
-background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
+background: ${props => props.darkMode === false ? "linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)" : "linear-gradient(90deg,#83919b 0%,#D29032 100%)"};
 border-radius: 1.6875rem;
 border: none;
 font-family: 'Noto Sans';
@@ -115,7 +116,6 @@ line-height: 1.563rem;
 text-align: center;
 color: #FFFFFF;
 margin-top: 1.75rem;
-margin-left: 1.8125rem;
 margin-bottom: 3.25rem;
 cursor: pointer;
 `

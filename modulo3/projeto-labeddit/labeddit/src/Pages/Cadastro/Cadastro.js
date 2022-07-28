@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Endbar from '../../Components/EndBar/Endbar'
 import Header from '../../Components/Header/Header'
 import StatusBar from '../../Components/StatusBar/StatusBar'
+import GlobalStateContext from '../../Global/GlobalStateContext'
 import { useUnprotectedPage } from '../../Hooks/useUnprotectedPage'
 import CadastroForm from './CadastroForm'
 import { MainContainer, Welcome } from './Styled'
 
 export default function Cadastro() {
+  const { states, constants } = useContext(GlobalStateContext)
+
   useUnprotectedPage()
   
   const onSubmitForm = (event) => {
@@ -15,13 +18,13 @@ export default function Cadastro() {
   }
 
   return (
-    <MainContainer>
+    <MainContainer darkMode={states.darkMode}>
       <StatusBar />
-      <Header />
+      <Header darkMode={states.darkMode}/>
 
-      <Welcome>Olá, boas vindas ao Labeddit ;)</Welcome>
+      <Welcome darkMode={states.darkMode}>Olá, boas vindas ao Labeddit ;)</Welcome>
 
-      <CadastroForm />
+      <CadastroForm darkMode={states.darkMode}/>
 
     </MainContainer>
   )

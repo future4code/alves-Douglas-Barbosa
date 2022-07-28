@@ -1,12 +1,14 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useContext } from 'react'
 import { baseURL } from '../../Constants/baseUrl'
 import useForm from '../../Hooks/useForm'
 import { Container, InputPost, InputTitle, StyledButton, StyledDivider, StyledForm } from './Styled'
 import Divider from '../../Assets/DividerL.svg'
+import GlobalStateContext from '../../Global/GlobalStateContext'
 
 export default function CreatePost() {
   const { form, onChange, cleanFields } = useForm({ title: "", body: "" })
+  const { states, constants } = useContext(GlobalStateContext)
 
   const createPost = (event) => {
     event.preventDefault()
@@ -30,7 +32,8 @@ export default function CreatePost() {
     <Container>
         <StyledForm onSubmit={createPost}>
 
-        <InputTitle 
+        <InputTitle
+        darkMode={states.darkMode}
         type='text' 
         placeholder='Titulo do post' 
         name='title'
@@ -38,13 +41,14 @@ export default function CreatePost() {
         onChange={onChange}/>
 
         <InputPost 
+        darkMode={states.darkMode}
         type='text' 
         placeholder='Seu post aqui!' 
         name='body'
         value={form.body}
         onChange={onChange}/>
 
-        <StyledButton type='submit'>Postar</StyledButton>
+        <StyledButton darkMode={states.darkMode} type='submit'>Postar</StyledButton>
         </StyledForm>
 
         <StyledDivider src={Divider} />

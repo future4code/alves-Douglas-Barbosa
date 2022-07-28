@@ -11,6 +11,7 @@ import { useEffect } from 'react'
 import Endbar from '../../Components/EndBar/Endbar'
 import { useContext } from 'react'
 import GlobalStateContext from '../../Global/GlobalStateContext'
+import Loading from '../../Components/Loading/Loading'
 
 export default function Feed() {
   const [posts, setPosts] = useState([])
@@ -28,18 +29,6 @@ export default function Feed() {
 
   //
 
-  const mapPosts = states.posts.map((post) => {
-    return <CardPosts
-      key={post.id}
-      body={post.body}
-      commentCount={post.commentCount}
-      id={post.id}
-      title={post.title}
-      user={post.username}
-      votes={post.voteSum}
-      post={post} />
-      
-  })
 
   const getPosts = () => {
     const token = localStorage.getItem('token')
@@ -63,13 +52,13 @@ export default function Feed() {
 
 
   return (
-    <MainContainer>
+    <MainContainer darkMode={states.darkMode}>
       <StatusBar />
-      <Header />
+      <Header darkMode={states.darkMode}/>
 
       <CreatePost />
       
-
+      {states.posts && states.posts ?
       <DisplayCards>
         {states.posts.map((post) => {
           return <CardPosts
@@ -81,10 +70,11 @@ export default function Feed() {
             user={post.username}
             votes={post.voteSum}
             post={post}
-            getPost={getPosts} />
+            getPost={getPosts} 
+            userVote={post.userVote}/>
             
         })}
-      </DisplayCards>
+      </DisplayCards> : <Loading />}
 
       <Endbar />
     </MainContainer>

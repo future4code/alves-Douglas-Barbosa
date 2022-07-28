@@ -16,7 +16,7 @@ export const InputTitle = styled.input`
 width: 22.4375rem;
 height: 1.875rem;
 padding: 0.3125rem 0.3125rem;
-background: #EDEDED;
+background: ${props => props.darkMode === false ? "#EDEDED" : "#c4c3c3"};
 border-radius: 0.75rem;
 border: none;
 font-size: 1rem;
@@ -31,7 +31,7 @@ export const InputPost = styled.textarea`
 width: 22.4375rem;
 height: 7.875rem;
 padding: 0.3125rem 0.3125rem;
-background: #EDEDED;
+background: ${props => props.darkMode === false ? "#EDEDED" : "#c4c3c3"};
 border-radius: 0.75rem;
 border: none;
 font-size: 1rem;
@@ -45,7 +45,7 @@ line-height: 1.4375rem;
 export const StyledButton = styled.button`
 width: 22.4375rem;
 height: 2.9375rem;
-background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
+background: ${props => props.darkMode === false ? "linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)" : "linear-gradient(90deg,#83919b 0%,#D29032 100%)"};
 border-radius: 0.75rem;
 border: none;
 font-family: 'IBM Plex Sans';

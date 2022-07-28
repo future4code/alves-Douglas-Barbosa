@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../../Components/Header/Header'
 import StatusBar from '../../Components/StatusBar/StatusBar'
 import GlobalStateContext from '../../Global/GlobalStateContext'
-import { BodyPost, Container, DivComments, DivDislikes, DivDownBars, EnviadoPor, InputPost, MainContainer, NumberLikes, StyledButton, StyledCommentImage, StyledCounter, StyledDivider, StyledForm, TituloPost, VoteUncolored } from './Styled'
+import { BodyPost, Container, DisplayCards, DivComments, DivDislikes, DivDownBars, EnviadoPor, InputPost, MainContainer, NumberLikes, StyledButton, StyledCommentImage, StyledCounter, StyledDivider, StyledForm, TituloPost, VoteUncolored } from './Styled'
 import Upvote from '../../Assets/Upvote.svg'
 import Downvote from '../../Assets/Downvote.svg'
 import CommentLogo from '../../Assets/Comment.svg'
@@ -15,30 +15,77 @@ import { baseURL } from '../../Constants/baseUrl'
 import UpVoteColorido from '../../Assets/UpvoteColorido.svg'
 import DownVoteColorido from '../../Assets/DownvoteColorido.svg'
 import Divider from '../../Assets/DividerL.svg'
+import useForm from '../../Hooks/useForm'
+import CardComments from '../../Components/CardComments/CardComments'
+import Endbar from '../../Components/EndBar/Endbar'
+import { useProtectedPage } from '../../Hooks/useProtectedPage'
+import useRequestData from '../../Hooks/useRequestData'
+import Loading from '../../Components/Loading/Loading'
 
 export default function Posts() {
   const { states, constants } = useContext(GlobalStateContext)
-  const [post, setPost] = useState({})
   const [upvote, setUpvote] = useState(false)
   const [downvote, setDownvote] = useState(false)
-  const [upVoteCount, setUpVoteCount] = useState()
-  const [downVoteCount, setDownVoteCount] = useState()
+  const [postComments, setPostComments] = useState([])
+  const [postDetail2, setPostDetail2] = useState([])
+  const { form, onChange, cleanFields } = useForm({ body: "", })
 
   const params = useParams();
   const navigate = useNavigate();
+  useProtectedPage()
+
+  
+  
+  const postDetail = states.posts.filter(post => {
+    return post.id === params.id;
+  })
+
+  //
+
+  const filtraPost = () => {
+    const postFiltrado = states.posts.filter(post => {
+      return post.id === params.id
+    })
+    setPostDetail2(postFiltrado)
+  }
+  console.log(postDetail2)
 
   useEffect(() => {
-    const postLocal = JSON.parse(localStorage.getItem('post'))
-    postLocal && setPost(postLocal)
-
+    constants.getPosts();
 
   }, [])
+
+
+  //
+
+  function getPostComments() {
+    const token = localStorage.getItem('token')
+    axios
+      .get(`${baseURL}/posts/${params.id}/comments`,
+        {
+          headers:
+          {
+            Authorization: token
+          }
+        })
+      .then(res => {
+        setPostComments(res.data)
+        console.log(res.data)
+      })
+      .catch(error => {
+        console.log(error.response)
+      })
+  }
+  useEffect(() => {
+    getPostComments();
+  }, [])
+
 
   //
 
   const handleUpVote = (number, id, setVote, voteName) => {
     if (upvote === true) {
-      handleRemoveVote(post.id, setUpvote, upvote)
+      handleRemoveVote(postDetail[0].id, setUpvote, upvote)
       alert("Voto zerado! upvote")
     } else {
       const body = {
@@ -54,7 +101,9 @@ export default function Posts() {
             }
           })
         .then((res) => {
+          console.log(res)
           setVote(!voteName)
+          constants.getPosts()
         })
         .catch((err) => {
           console.log(err)
@@ -75,7 +124,9 @@ export default function Posts() {
           }
         })
       .then((res) => {
+        console.log(res)
         setVote(!voteName)
+        constants.getPosts()
       })
       .catch((err) => {
         console.log(err)
@@ -86,7 +137,7 @@ export default function Posts() {
 
   const handleDownVote = (number, id, setVote, voteName) => {
     if (downvote === true) {
-      handleRemoveVote(post.id, setDownvote, downvote)
+      handleRemoveVote(postDetail[0].id, setDownvote, downvote)
       alert("Voto zerado! downvote")
     } else {
       const body = {
@@ -104,6 +155,7 @@ export default function Posts() {
         .then((res) => {
           console.log(res)
           setVote(!voteName)
+          constants.getPosts()
         })
         .catch((err) => {
           console.log(err)
@@ -111,19 +163,7 @@ export default function Posts() {
     }
   }
 
-  const renderVotes = () => {
-    if (post.voteSum && upvote === false && downvote === false) {
-      return <NumberLikes>{post.voteSum}</NumberLikes>
-    }
-    else if (upvote === true) {
-      return <NumberLikes>{upVoteCount}</NumberLikes>
-    } else if (downvote === true) {
-      return <NumberLikes>{downVoteCount}</NumberLikes>
-    } if (post.voteSum === null) {
-      return <NumberLikes>{post.voteSum}</NumberLikes>
-    }
-  }
-  console.log(post.voteSum)
+  //
 
   const renderUpVoteColor = () => {
     if (upvote === true) {
@@ -141,41 +181,93 @@ export default function Posts() {
       return Downvote
     }
   }
+
+  //
+
+  const createComment = (event) => {
+    event.preventDefault()
+
+    const token = localStorage.getItem('token')
+    axios
+      .post(`${baseURL}/posts/${params.id}/comments`, form,
+        {
+          headers:
+          {
+            Authorization: token
+          }
+        })
+      .then((res) => {
+        console.log(res)
+        getPostComments()
+        cleanFields()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
   return (
-    <MainContainer>
+    <MainContainer darkMode={states.darkMode}>
 
       <StatusBar />
-      <Header />
+      <Header darkMode={states.darkMode}/>
+      {postDetail && postDetail[0] ?
+      <Container darkMode={states.darkMode}>
 
-      <Container>
+        <EnviadoPor>Enviado por: {postDetail[0] ? postDetail[0].username : <p>loading</p>}</EnviadoPor>
 
-        <EnviadoPor>Enviado por: {post.username}</EnviadoPor>
-
-        <TituloPost>{post.title}</TituloPost>
-        <BodyPost>{post.body}</BodyPost>
+        <TituloPost>{postDetail[0] ? postDetail[0].title : <p>loading</p>}</TituloPost>
+        <BodyPost>{postDetail[0] ?  postDetail[0].body : <p>loading</p>}</BodyPost>
 
         <DivDownBars>
 
-          <DivDislikes>
-            <VoteUncolored onClick={() => handleUpVote(1, post.id, setUpvote, upvote)} src={renderUpVoteColor()} />
-            <NumberLikes>{post.voteSum}</NumberLikes>
+          <DivDislikes darkMode={states.darkMode}>
+            <VoteUncolored onClick={() => handleUpVote(1, postDetail && postDetail[0].id, setUpvote, upvote)} src={renderUpVoteColor()} />
+            <NumberLikes>{postDetail[0] ? postDetail[0].voteSum : <p>loading</p>}</NumberLikes>
 
-            <VoteUncolored onClick={() => handleDownVote(-1, post.id, setDownvote, downvote, setDownVoteCount)} src={renderDownVoteColor()} />
+            <VoteUncolored onClick={() => handleDownVote(-1, postDetail && postDetail[0].id, setDownvote, downvote)} src={renderDownVoteColor()} />
           </DivDislikes>
 
-          <DivComments>
+          <DivComments darkMode={states.darkMode}>
             <StyledCommentImage src={CommentLogo} />
-            <StyledCounter>{post.commentCount <= 0 ? "0" : post.commentCount}</StyledCounter>
+            <StyledCounter>{postDetail[0].commentCount == 0 ? "0" : postDetail && postDetail[0].commentCount}</StyledCounter>
           </DivComments>
 
         </DivDownBars>
-      </Container>
+      </Container> : <Loading />}
 
-      <StyledForm>
-        <InputPost placeholder='Adicionar comentario' />
-        <StyledButton>Responder</StyledButton>
+      <StyledForm onSubmit={createComment}>
+
+        <InputPost darkMode={states.darkMode}
+          type='text'
+          placeholder='Adicionar comentario'
+          name='body'
+          value={form.body}
+          onChange={onChange} />
+
+        <StyledButton darkMode={states.darkMode} type='submit'>Responder</StyledButton>
         <StyledDivider src={Divider} />
+
       </StyledForm>
+      {postComments && postComments ?
+      <DisplayCards darkMode={states.darkMode}>
+
+      {postComments.map((comment) => {
+        return <CardComments 
+        key={comment.id}
+        id={comment.id}
+        body={comment.body}
+        postId={comment.postId}
+        username={comment.username}
+        votes={comment.voteSum}
+        getPostComments={getPostComments}
+        userVote={comment.userVote}
+        darkMode={states.darkMode}
+        />
+      })} 
+
+      </DisplayCards> : <Loading />}
+      <Endbar />
+
 
     </MainContainer>
   )

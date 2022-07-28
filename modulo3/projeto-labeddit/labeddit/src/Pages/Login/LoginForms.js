@@ -6,7 +6,7 @@ import { goToFeed } from '../../Routes/Coordinator'
 import { useNavigate } from 'react-router-dom'
 import { useUnprotectedPage } from '../../Hooks/useUnprotectedPage'
 
-export default function LoginForms() {
+export default function LoginForms(props) {
   const { form, onChange, cleanFields } = useForm({ email: "", password: "" })
   const navigate = useNavigate()
 
@@ -21,6 +21,7 @@ export default function LoginForms() {
   return (
       <LoginForm onSubmit={onSubmitForm}>
         <StyledInput
+         darkMode={props.darkMode}
           type='email'
           placeholder='Email'
           name='email'
@@ -29,6 +30,7 @@ export default function LoginForms() {
           required
         />
         <StyledInput
+          darkMode={props.darkMode}
           type='password'
           placeholder='Senha'
           name='password'
@@ -37,7 +39,7 @@ export default function LoginForms() {
           required
         />
 
-        <StyledButton type='submit'>Continuar</StyledButton>
+        <StyledButton darkMode={props.darkMode} type='submit'>Continuar</StyledButton>
       </LoginForm>
   )
 }

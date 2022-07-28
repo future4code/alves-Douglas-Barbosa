@@ -6,7 +6,7 @@ import { goToLogin } from '../../Routes/Coordinator'
 import { Signup } from '../../Services/Signup'
 import { DivCheckBox, SignupForm, SpanLink, StyledAcordo, StyledButton, StyledCheckbox, StyledInput, StyledTerms, } from './Styled'
 
-export default function CadastroForm() {
+export default function CadastroForm(props) {
   const { form, onChange, cleanFields } = useForm({ username: "", email: "", password: "" })
   const navigate = useNavigate()
 
@@ -27,6 +27,7 @@ export default function CadastroForm() {
       <SignupForm onSubmit={onSubmitForm}>
         
         <StyledInput 
+        darkMode={props.darkMode}
         type='text'
         placeholder='Nome de usuário' 
         name='username'
@@ -36,6 +37,7 @@ export default function CadastroForm() {
         />
 
         <StyledInput
+        darkMode={props.darkMode}
           type='email'
           placeholder='Email'
           name='email'
@@ -45,6 +47,7 @@ export default function CadastroForm() {
         />
 
         <StyledInput  
+        darkMode={props.darkMode}
         type='password'
         placeholder='Senha' 
         name='password'
@@ -52,13 +55,13 @@ export default function CadastroForm() {
         onChange={onChange}
         required />
 
-        <StyledTerms>Ao continuar, você concorda com o nosso <SpanLink>Contrato de usuário</SpanLink> e nossa <SpanLink>Política de Privacidade</SpanLink> </StyledTerms>
+        <StyledTerms darkMode={props.darkMode}>Ao continuar, você concorda com o nosso <SpanLink>Contrato de usuário</SpanLink> e nossa <SpanLink>Política de Privacidade</SpanLink> </StyledTerms>
         <DivCheckBox>
           <StyledCheckbox type='checkbox' required ></StyledCheckbox>
-          <StyledAcordo>Eu concordo em receber emails sobre coisas legais no Labeddit</StyledAcordo>
+          <StyledAcordo darkMode={props.darkMode}>Eu concordo em receber emails sobre coisas legais no Labeddit</StyledAcordo>
         </DivCheckBox>
 
-        <StyledButton type='submit'>Cadastrar</StyledButton>
+        <StyledButton darkMode={props.darkMode} type='submit'>Cadastrar</StyledButton>
         
         <Endbar />
       </SignupForm>

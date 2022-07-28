@@ -1,28 +1,24 @@
 import React, { useContext, useEffect } from 'react'
-import { BodyPost, DivComments, DivDislikes, DivDownBars, EnviadoPor, MainContainer, NumberLikes, StyledCommentImage, StyledCounter, TituloPost, VoteUncolored } from './Styled'
+import { BodyPost, DivDislikes, DivDownBars, EnviadoPor, MainContainer, NumberLikes,VoteUncolored } from './Styled'
 import Upvote from '../../Assets/Upvote.svg'
 import Downvote from '../../Assets/Downvote.svg'
-import CommentLogo from '../../Assets/Comment.svg'
 import axios from 'axios'
 import { baseURL } from '../../Constants/baseUrl'
 import { useState } from 'react'
 import UpVoteColorido from '../../Assets/UpvoteColorido.svg'
 import DownVoteColorido from '../../Assets/DownvoteColorido.svg'
-import { goToPosts } from '../../Routes/Coordinator'
 import { useNavigate } from 'react-router-dom'
 import GlobalStateContext from '../../Global/GlobalStateContext'
 
-export default function CardPosts(props) {
+export default function CardComments(props) {
   const [upvote, setUpvote] = useState(false)
   const [downvote, setDownvote] = useState(false)
-  const [refresh, setRefresh] = useState()
   const { states, constants } = useContext(GlobalStateContext)
-
 
   const navigate = useNavigate()
 
    //
-   
+
    useEffect(() => {
     if(props.userVote === 1) {
       setUpvote(!upvote)
@@ -33,7 +29,6 @@ export default function CardPosts(props) {
     }
     
    }, [])
-   
   
    //
 
@@ -47,7 +42,7 @@ export default function CardPosts(props) {
     }
     const token = localStorage.getItem('token')
     axios
-      .post(`${baseURL}/posts/${id}/votes`, body,
+      .post(`${baseURL}/comments/${id}/votes`, body,
         {
           headers:
           {
@@ -56,7 +51,7 @@ export default function CardPosts(props) {
         })
       .then((res) => {
         setVote(!voteName)
-        constants.getPosts()
+        props.getPostComments()
 
       })
       .catch((err) => {
@@ -70,7 +65,7 @@ export default function CardPosts(props) {
   const handleRemoveVote = (id, setVote, voteName) => {
     const token = localStorage.getItem('token')
     axios
-      .delete(`${baseURL}/posts/${id}/votes`,
+      .delete(`${baseURL}/comments/${id}/votes`,
         {
           headers:
           {
@@ -79,7 +74,7 @@ export default function CardPosts(props) {
         })
       .then((res) => {
         setVote(!voteName)
-        constants.getPosts()
+        props.getPostComments()
       })
       .catch((err) => {
         console.log(err)
@@ -92,7 +87,7 @@ export default function CardPosts(props) {
     if (downvote === true) {
       handleRemoveVote(props.id, setDownvote, downvote)
       setVote(!voteName)
-      constants.getPosts()
+      props.getPostComments()
       alert("Voto zerado! downvote")
     } else {
     const body = {
@@ -100,7 +95,7 @@ export default function CardPosts(props) {
     }
     const token = localStorage.getItem('token')
     axios
-      .put(`${baseURL}/posts/${id}/votes`, body,
+      .put(`${baseURL}/comments/${id}/votes`, body,
         {
           headers:
           {
@@ -110,7 +105,7 @@ export default function CardPosts(props) {
       .then((res) => {
         console.log(res)
         setVote(!voteName)
-        constants.getPosts()
+        props.getPostComments()
       })
       .catch((err) => {
         console.log(err)
@@ -135,33 +130,23 @@ export default function CardPosts(props) {
     } 
   } 
 
-  const handleOnClick = (post, id) => {
-    states.setPostDetail(props.post)
-    goToPosts(navigate, id)
-  }
-
   return (
-    <MainContainer darkMode={states.darkMode}>
+    <MainContainer darkMode={props.darkMode}>
 
-      <EnviadoPor>Enviado por: {props.user}</EnviadoPor>
+      <EnviadoPor>Enviado por: {props.username}</EnviadoPor>
 
-      <TituloPost>{props.title}</TituloPost>
       <BodyPost>{props.body}</BodyPost>
 
       <DivDownBars>
 
-        <DivDislikes darkMode={states.darkMode}>
+        <DivDislikes darkMode={props.darkMode}>
           <VoteUncolored onClick={() => handleUpVote(1, props.id, setUpvote, upvote)} src={renderUpVoteColor()} />
           <NumberLikes>{props.votes }</NumberLikes>
           
           <VoteUncolored onClick={() => handleDownVote(-1, props.id, setDownvote, downvote)} src={renderDownVoteColor()} />
         </DivDislikes>
 
-        <DivComments darkMode={states.darkMode}>
-          <StyledCommentImage onClick={()=>handleOnClick(props.post, props.id)} src={CommentLogo} />
-          <StyledCounter>{props.commentCount <= 0 ? "0" : props.commentCount}</StyledCounter>
-        </DivComments>
-
+       
       </DivDownBars>
     </MainContainer>
   )

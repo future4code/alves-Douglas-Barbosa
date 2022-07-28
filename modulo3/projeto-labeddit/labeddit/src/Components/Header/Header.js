@@ -1,11 +1,11 @@
 import React from 'react'
 import { Container, LogoutButton, MiniLogo, StyledGoBack, StyledSpan } from './Styled'
 import Logo from '../../Assets/Logo.svg'
-import { goToLogin } from '../../Routes/Coordinator'
+import { goToFeed, goToLogin } from '../../Routes/Coordinator'
 import { useNavigate } from 'react-router-dom'
 import GoBack from '../../Assets/GoBack.svg'
 
-export default function Header() {
+export default function Header(props) {
     const navigate = useNavigate()
 
     const clearToken = (navigate) => {
@@ -25,14 +25,14 @@ export default function Header() {
 
     const conditionalGoBack = () => {
         if (window.location.pathname.includes("/posts")) {
-            return <StyledGoBack src={GoBack} />
+            return <StyledGoBack onClick={()=>goToFeed(navigate)} src={GoBack} />
         } else {
             return <StyledSpan></StyledSpan>
         }
     }
 
     return (
-        <Container>
+        <Container darkMode={props.darkMode}>
             {conditionalGoBack()}
             <MiniLogo src={Logo} />
             {conditionalButton()}
