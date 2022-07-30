@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import Endbar from '../../Components/EndBar/Endbar'
 import Header from '../../Components/Header/Header'
 import StatusBar from '../../Components/StatusBar/StatusBar'
 import GlobalStateContext from '../../Global/GlobalStateContext'

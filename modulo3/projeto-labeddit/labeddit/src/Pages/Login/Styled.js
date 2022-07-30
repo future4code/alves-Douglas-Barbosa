@@ -16,6 +16,7 @@ margin-top: 5.563rem;
 `
 
 export const StyledLabeddit = styled.h2`
+font-family: 'IBM Plex Sans';
 font-style: normal;
 font-weight: 700;
 font-size: 2.25rem;
@@ -26,6 +27,7 @@ margin-top: 0.686rem;
 `
 
 export const StyledSubtitle = styled.h4`
+font-family: 'IBM Plex Sans';
 font-style: normal;
 font-weight: 300;
 font-size: 1rem;
@@ -64,7 +66,7 @@ opacity: 0.8;
 export const StyledButton = styled.button`
 width: 22.813rem;
 height: 3.188rem;
-background: ${props => props.darkMode === false ? "linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)" : "linear-gradient(90deg,#83919b 0%,#D29032 100%)"};
+background: ${props => props.darkMode === false ? "linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)" : "linear-gradient(90deg,#a33a1a 0%,#D29032 100%)"};
 border-radius: 1.6875rem;
 border: none;
 font-family: 'Noto Sans';
@@ -76,6 +78,12 @@ text-align: center;
 color: #FFFFFF;
 margin-top: 3.5rem;
 cursor: pointer;
+transform: scale(1.0);
+transition-duration: 0.5s;
+:hover {
+  transform: scale(1.01);
+  transition-duration: 0.2s;
+}
 `
 
 export const StyledDivider = styled.img`
@@ -108,4 +116,10 @@ text-align: center;
 color: #FE7E02;
 margin-bottom: 9.875rem;
 cursor: pointer;
+transform: scale(1.0);
+transition-duration: 0.5s;
+:hover {
+  transform: scale(1.01);
+  transition-duration: 0.2s;
+}
 `

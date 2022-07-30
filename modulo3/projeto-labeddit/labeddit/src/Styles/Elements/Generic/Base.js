@@ -13,7 +13,7 @@ height: 100vh;
 html {
   font-size: 16px;
 
-  @media (max-width: 376px) {
+@media (max-width: 376px) {
     font-size: 11.52px;
 }
 

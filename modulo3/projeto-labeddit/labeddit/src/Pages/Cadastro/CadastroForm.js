@@ -58,7 +58,7 @@ export default function CadastroForm(props) {
         <StyledTerms darkMode={props.darkMode}>Ao continuar, você concorda com o nosso <SpanLink>Contrato de usuário</SpanLink> e nossa <SpanLink>Política de Privacidade</SpanLink> </StyledTerms>
         <DivCheckBox>
           <StyledCheckbox type='checkbox' required ></StyledCheckbox>
-          <StyledAcordo darkMode={props.darkMode}>Eu concordo em receber emails sobre coisas legais no Labeddit</StyledAcordo>
+          <StyledAcordo darkMode={props.darkMode}>Eu concordo com a politica de privacidade e em receber emails sobre coisas legais no Labeddit!</StyledAcordo>
         </DivCheckBox>
 
         <StyledButton darkMode={props.darkMode} type='submit'>Cadastrar</StyledButton>

@@ -55,7 +55,7 @@ export default function CardComments(props) {
 
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
       })
     }
   }
@@ -77,7 +77,7 @@ export default function CardComments(props) {
         props.getPostComments()
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
       })
   }
 
@@ -108,7 +108,7 @@ export default function CardComments(props) {
         props.getPostComments()
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
       })
     }
   }

@@ -15,7 +15,6 @@ import GlobalStateContext from '../../Global/GlobalStateContext'
 export default function CardPosts(props) {
   const [upvote, setUpvote] = useState(false)
   const [downvote, setDownvote] = useState(false)
-  const [refresh, setRefresh] = useState()
   const { states, constants } = useContext(GlobalStateContext)
 
 
@@ -60,7 +59,7 @@ export default function CardPosts(props) {
 
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
       })
     }
   }
@@ -82,7 +81,7 @@ export default function CardPosts(props) {
         constants.getPosts()
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
       })
   }
 
@@ -108,12 +107,11 @@ export default function CardPosts(props) {
           }
         })
       .then((res) => {
-        console.log(res)
         setVote(!voteName)
         constants.getPosts()
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
       })
     }
   }

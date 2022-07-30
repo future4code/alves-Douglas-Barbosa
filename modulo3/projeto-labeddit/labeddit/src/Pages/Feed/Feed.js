@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CreatePost from '../../Components/CreatePost/CreatePost'
 import Header from '../../Components/Header/Header'
 import StatusBar from '../../Components/StatusBar/StatusBar'
-import { DisplayCards, MainContainer, StyledDivider } from './Styled'
+import { DisplayCards, MainContainer } from './Styled'
 import CardPosts from '../../Components/CardPosts/CardPosts'
 import { useProtectedPage } from '../../Hooks/useProtectedPage'
 import axios from 'axios'
@@ -22,8 +22,10 @@ export default function Feed() {
   //
 
   useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(token){
     constants.getPosts()
-
+    }
 
   }, [])
 
@@ -41,11 +43,10 @@ export default function Feed() {
           }
         })
       .then((res) => {
-        console.log(res)
         setPosts(res.data)
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
       })
   }
 

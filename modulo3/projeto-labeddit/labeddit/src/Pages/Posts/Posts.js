@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Header from '../../Components/Header/Header'
 import StatusBar from '../../Components/StatusBar/StatusBar'
 import GlobalStateContext from '../../Global/GlobalStateContext'
@@ -19,7 +19,6 @@ import useForm from '../../Hooks/useForm'
 import CardComments from '../../Components/CardComments/CardComments'
 import Endbar from '../../Components/EndBar/Endbar'
 import { useProtectedPage } from '../../Hooks/useProtectedPage'
-import useRequestData from '../../Hooks/useRequestData'
 import Loading from '../../Components/Loading/Loading'
 
 export default function Posts() {
@@ -27,11 +26,9 @@ export default function Posts() {
   const [upvote, setUpvote] = useState(false)
   const [downvote, setDownvote] = useState(false)
   const [postComments, setPostComments] = useState([])
-  const [postDetail2, setPostDetail2] = useState([])
   const { form, onChange, cleanFields } = useForm({ body: "", })
 
   const params = useParams();
-  const navigate = useNavigate();
   useProtectedPage()
 
   
@@ -42,16 +39,12 @@ export default function Posts() {
 
   //
 
-  const filtraPost = () => {
-    const postFiltrado = states.posts.filter(post => {
-      return post.id === params.id
-    })
-    setPostDetail2(postFiltrado)
-  }
-  console.log(postDetail2)
 
   useEffect(() => {
-    constants.getPosts();
+    const token = localStorage.getItem('token')
+    if(token){
+    constants.getPosts()
+    }
 
   }, [])
 
@@ -61,7 +54,7 @@ export default function Posts() {
   function getPostComments() {
     const token = localStorage.getItem('token')
     axios
-      .get(`${baseURL}/posts/${params.id}/comments`,
+      .get(`${baseURL}/posts/${params.id}/comments?page=1&size=99999`,
         {
           headers:
           {
@@ -70,10 +63,9 @@ export default function Posts() {
         })
       .then(res => {
         setPostComments(res.data)
-        console.log(res.data)
       })
       .catch(error => {
-        console.log(error.response)
+        alert(error.response.data)
       })
   }
   useEffect(() => {
@@ -101,12 +93,11 @@ export default function Posts() {
             }
           })
         .then((res) => {
-          console.log(res)
           setVote(!voteName)
           constants.getPosts()
         })
         .catch((err) => {
-          console.log(err)
+          alert(err.response.data)
         })
     }
   }
@@ -124,12 +115,11 @@ export default function Posts() {
           }
         })
       .then((res) => {
-        console.log(res)
         setVote(!voteName)
         constants.getPosts()
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
       })
   }
 
@@ -153,12 +143,11 @@ export default function Posts() {
             }
           })
         .then((res) => {
-          console.log(res)
           setVote(!voteName)
           constants.getPosts()
         })
         .catch((err) => {
-          console.log(err)
+          alert(err.response.data)
         })
     }
   }
@@ -197,14 +186,17 @@ export default function Posts() {
           }
         })
       .then((res) => {
-        console.log(res)
         getPostComments()
         cleanFields()
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data)
       })
   }
+
+  //
+
+
   return (
     <MainContainer darkMode={states.darkMode}>
 
@@ -229,7 +221,7 @@ export default function Posts() {
 
           <DivComments darkMode={states.darkMode}>
             <StyledCommentImage src={CommentLogo} />
-            <StyledCounter>{postDetail[0].commentCount == 0 ? "0" : postDetail && postDetail[0].commentCount}</StyledCounter>
+            <StyledCounter>{postDetail[0].commentCount === 0 ? "0" : postDetail && postDetail[0].commentCount}</StyledCounter>
           </DivComments>
 
         </DivDownBars>

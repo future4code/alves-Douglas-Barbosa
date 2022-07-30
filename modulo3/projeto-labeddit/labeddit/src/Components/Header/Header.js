@@ -14,7 +14,7 @@ export default function Header(props) {
     }
 
     const conditionalButton = () => {
-        if (window.location.pathname.includes("/feed")) {
+        if (window.location.pathname.includes("/")) {
             return <LogoutButton onClick={() => clearToken(navigate)}>Logout</LogoutButton>
         } else if (window.location.pathname.includes("/cadastro")) {
             return <LogoutButton onClick={()=>goToLogin(navigate)}>Entrar</LogoutButton>

@@ -45,7 +45,7 @@ line-height: 1.4375rem;
 export const StyledButton = styled.button`
 width: 22.4375rem;
 height: 2.9375rem;
-background: ${props => props.darkMode === false ? "linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)" : "linear-gradient(90deg,#83919b 0%,#D29032 100%)"};
+background: ${props => props.darkMode === false ? "linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)" : "linear-gradient(90deg,#a33a1a 0%,#D29032 100%)"};
 border-radius: 0.75rem;
 border: none;
 font-family: 'IBM Plex Sans';
@@ -55,6 +55,12 @@ font-size: 1.125rem;
 line-height: 1.4375rem;
 color: #FFFFFF;
 cursor: pointer;
+transform: scale(1.0);
+transition-duration: 0.5s;
+:hover {
+  transform: scale(1.01);
+  transition-duration: 0.2s;
+}
 `
 
 export const StyledForm = styled.form`

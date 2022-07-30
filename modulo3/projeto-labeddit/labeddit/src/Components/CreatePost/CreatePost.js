@@ -22,10 +22,11 @@ export default function CreatePost() {
         }
       })
     .then((res) => {
-      console.log(res)
+      constants.getPosts()
+      cleanFields()
     })
     .catch((err) => {
-      console.log(err)
+      alert(err.response.data)
     })
   }
   return (

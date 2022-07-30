@@ -9,9 +9,9 @@ export default function Router() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route index element={ <Login /> } />
+                <Route index element={ <Feed /> } />
                 <Route path='cadastro' element={ <Cadastro /> } />
-                <Route path='feed' element={ <Feed /> } />
+                <Route path='login' element={ <Login /> } />
                 <Route path='posts/:id' element={ <Posts /> } />
             </Routes>
         </BrowserRouter>

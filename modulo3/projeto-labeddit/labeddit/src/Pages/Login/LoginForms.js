@@ -2,7 +2,6 @@ import React from 'react'
 import { LoginForm, StyledButton, StyledInput, } from './Styled'
 import useForm from '../../Hooks/useForm'
 import { login } from '../../Services/Login'
-import { goToFeed } from '../../Routes/Coordinator'
 import { useNavigate } from 'react-router-dom'
 import { useUnprotectedPage } from '../../Hooks/useUnprotectedPage'
 

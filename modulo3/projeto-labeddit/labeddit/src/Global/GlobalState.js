@@ -17,7 +17,7 @@ const GlobalState = (props) => {
   const getPosts = () => {
     const token = localStorage.getItem('token')
     axios
-      .get(`${baseURL}/posts?page=1&size=10`,
+      .get(`${baseURL}/posts?page=1&size=999`,
         {
           headers:
           {
@@ -25,11 +25,10 @@ const GlobalState = (props) => {
           }
         })
       .then((res) => {
-        console.log(res)
         setPosts(res.data)
       })
       .catch((err) => {
-        console.log(err)
+        alert(err)
       })
   }
 

@@ -105,7 +105,7 @@ color: ${props => props.darkMode === false ? "#000000" : "#c4c3c3"};
 export const StyledButton = styled.button`
 width: 22.813rem;
 height: 3.188rem;
-background: ${props => props.darkMode === false ? "linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)" : "linear-gradient(90deg,#83919b 0%,#D29032 100%)"};
+background: ${props => props.darkMode === false ? "linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)" : "linear-gradient(90deg,#a33a1a 0%,#D29032 100%)"};
 border-radius: 1.6875rem;
 border: none;
 font-family: 'Noto Sans';
@@ -118,4 +118,10 @@ color: #FFFFFF;
 margin-top: 1.75rem;
 margin-bottom: 3.25rem;
 cursor: pointer;
+transform: scale(1.0);
+transition-duration: 0.5s;
+:hover {
+  transform: scale(1.01);
+  transition-duration: 0.2s;
+}
 `
