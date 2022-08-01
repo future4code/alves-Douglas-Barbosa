@@ -1,3 +1,4 @@
+
 # ![Group 1](https://user-images.githubusercontent.com/103120880/181903235-990213e2-56d0-44da-89fc-cb8e97ecae54.svg)
 
 ### Link
@@ -14,7 +15,7 @@
 - Like or Dislike system
 - JWT Token verification
 - Create your post and make your comments
-- Dark Mode included 
+- Dark Mode included (using Global State)
 - Pagination using a scroll system (just like Reddit)
 - Mobile First Application
 
@@ -31,4 +32,3 @@
 ![image](https://user-images.githubusercontent.com/103120880/181904045-8beb9851-f1df-40fa-95aa-4047c77b482b.png)
 
 ![image](https://user-images.githubusercontent.com/103120880/181903925-5b18c728-512b-42bf-8ca3-7d6b02af2364.png)
-
