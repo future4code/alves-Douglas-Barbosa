@@ -32,7 +32,6 @@ export default function Matches(props) {
     const onChangeSearch = (e) => {
         setSearch(e.target.value)
     }
-
     return (
         <MainContainer>
             <HeaderMatches page={props.home}
@@ -41,7 +40,7 @@ export default function Matches(props) {
                 search={search}
                 setSearch={onChangeSearch}></MatchesAndSearchBar>
             <DisplayMatches>
-                {matches.filter((match) => {
+                {matches && matches.filter((match) => {
                     return (
                         match.name
                             .toLowerCase()
