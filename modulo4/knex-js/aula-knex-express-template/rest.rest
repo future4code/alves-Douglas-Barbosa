@@ -1,0 +1,36 @@
+GET http://localhost:3003/users/8
+
+###
+
+GET http://localhost:3003/users/Ana
+
+###
+GET http://localhost:3003/actor/female
+
+###
+
+PUT http://localhost:3003/actor/002
+Content-Type: application/json
+
+{
+    "salary": 107788
+}
+
+###
+GET http://localhost:3003/actors/002
+
+### 
+GET http://localhost:3003/actors?gender=female
+
+###
+
+# POST http://localhost:3003/actor
+# Content-Type: application/json
+
+# {   
+#     "id": 005,
+#     "name": "Tobey Maguire",
+#     "salary": 107788,
+#     "birth_date": 1989-01-01,
+#     "salary": 107788,
+# }
