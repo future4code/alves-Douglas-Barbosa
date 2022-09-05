@@ -1,0 +1,46 @@
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "parede",
+    "email": "parede@hotmail.com",
+    "password": "123"
+
+}
+
+###
+
+GET http://localhost:3003/users
+
+###
+
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Dualshock 5",
+    "price": 399.90,
+    "image_url": "https://picsum.photos/536/354"
+
+}
+
+###
+
+
+GET http://localhost:3003/products
+
+###
+
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "userId": "1662211657442",
+    "productId": "1662249693493",
+    "quantity": 10
+
+}
+
+###
+
+GET http://localhost:3003/users/1662211657442/purchases
