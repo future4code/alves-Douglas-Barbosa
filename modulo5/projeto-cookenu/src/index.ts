@@ -1,6 +1,6 @@
 import app from "./app"
-import editUser from './endpoints/editUser'
-import createUser from './endpoints/createUser'
+import UserEndpoint from './endpoints/User'
 
-app.post('/user/signup', createUser)
-app.put('/user/edit/:id', editUser)
+const userEndpoint = new UserEndpoint() 
+
+app.post("/criar-usuario", userEndpoint.create)
