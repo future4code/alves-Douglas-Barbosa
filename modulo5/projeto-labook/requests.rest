@@ -1,2 +1,9 @@
 ### Endpoint de teste
-GET http://localhost:3003/ping
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "Doug",
+    "email": "Douggx10@hotmail.com",
+    "password": "147258369"
+}
