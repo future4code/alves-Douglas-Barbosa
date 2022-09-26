@@ -11,6 +11,11 @@ export interface IUserDB {
     role: USER_ROLES
 }
 
+export interface ILoginInputDTO {
+    email: string,
+    password: string
+}
+
 export interface ISignupInputDTO {
     name: string,
     email: string,
