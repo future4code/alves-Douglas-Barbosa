@@ -1,0 +1,19 @@
+### Endpoint de teste
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "Doug",
+    "email": "Douggx10@hotmail.com",
+    "password": "147258369"
+}
+
+###
+
+POST http://localhost:3003/users/login 
+Content-Type: application/json
+
+{
+    "email": "douggx10@hotmail.com",
+    "password": "147258369"
+}
